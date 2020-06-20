@@ -10,11 +10,3 @@ jobs:
               java-version: 13
         - run: |
             locate android.jar
-            aapt2 compile --dir src/main/res　-o res.apk
-            aapt2 link -I --manifest src/main/AndroidManifest.xml --java src/main/java src/main/java res.apk -o res.apk
-            javac src/main/java/main/*.java -cp %ANDROID_HOME%\platforms\android-28\android.jar
-            d8 --lib %ANDROID_HOME%\platforms\android-28\android.jar --release --output . src/main/java/main/*.class
-            aapt add res.apk classes.dex
-            zipalign -p 4 res.apk res.apk
-            keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
-            apksigner sign --ks my-release-key.jks --out res.apk res.apk
