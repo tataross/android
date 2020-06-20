@@ -9,4 +9,4 @@ jobs:
           with:
               java-version: 13
         - run: |
-              ls -aRl /usr/local/lib/android/sdk
+              ls $ANDROID_SDK_ROOT/platform
