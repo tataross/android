@@ -9,4 +9,4 @@ jobs:
           with:
               java-version: 13
         - run: |
-            locate android.jar
+            which aapt2
