@@ -9,4 +9,4 @@ jobs:
           with:
               java-version: 13
         - run: |
-              which sdkmanager
+              ls -al opt/hostedtoolcache/
