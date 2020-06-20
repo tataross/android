@@ -9,4 +9,4 @@ jobs:
           with:
               java-version: 13
         - run: |
-              ls -al /usr/bin
+              which sdkmanager
