@@ -15,5 +15,5 @@ jobs:
               $ANDROID_SDK_ROOT/build-tools/29.0.3/d8 src/main/java/com/main/*.class --lib $ANDROID_SDK_ROOT/platforms/android-29/android.jar --release 
               $ANDROID_SDK_ROOT/build-tools/29.0.3/aapt add res.apk classes.dex 
               $ANDROID_SDK_ROOT/build-tools/29.0.3/zipalign 4 res.apk out.apk 
-              keytool -genkey -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -storepass 123456 -dname "CN=(名字与姓氏), OU=(组织单位名称), O=(组织名称), L=(城市或区域名称), ST=(州或省份名称), C=(单位的两字母国家代码)"
-              $ANDROID_SDK_ROOT/build-tools/29.0.3/apksigner sign --ks my-release-key.jks out.apk
+              keytool -genkey -keystore myreleasekey.jks -keyalg RSA -keysize 2048 -validity 10000 -storepass 123456 -dname "CN=(名字与姓氏), OU=(组织单位名称), O=(组织名称), L=(城市或区域名称), ST=(州或省份名称), C=(单位的两字母国家代码)"
+              $ANDROID_SDK_ROOT/build-tools/29.0.3/apksigner sign --ks myreleasekey.jks out.apk
