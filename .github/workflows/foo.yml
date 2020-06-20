@@ -8,4 +8,5 @@ jobs:
         - uses: actions/setup-java@v1
           with:
               java-version: 13
-        - run: java Main.java
+        - run:｜
+        aapt2 compile --dir src/main/res　-o res.apk
