@@ -9,4 +9,4 @@ jobs:
           with:
               java-version: 13
         - run: |
-              which aapt2
+              ls -al /usr/bin
