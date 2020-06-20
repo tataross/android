@@ -9,4 +9,4 @@ jobs:
           with:
               java-version: 13
         - run: |
-              ls -al opt/hostedtoolcache/
+              ls -al /opt/hostedtoolcache/
