@@ -11,8 +11,8 @@ jobs:
         - run: |
               $ANDROID_SDK_ROOT/build-tools/29.0.3/aapt2 compile --dir src/main/res -o res.apk
               $ANDROID_SDK_ROOT/build-tools/29.0.3/aapt2 link -I $ANDROID_SDK_ROOT/platforms/android-29/android.jar --manifest src/main/AndroidManifest.xml --java src/main/java res.apk -o res.apk
-              javac src/main/java/main/*.java -cp $ANDROID_SDK_ROOT/platforms/android-29/android.jar
-              $ANDROID_SDK_ROOT/build-tools/29.0.3/d8 --lib $ANDROID_SDK_ROOT/platforms/android-29/android.jar --release --output . src/main/java/main/*.class 
+              javac src/main/java/com/main/*.java -cp $ANDROID_SDK_ROOT/platforms/android-29/android.jar
+              $ANDROID_SDK_ROOT/build-tools/29.0.3/d8 --lib $ANDROID_SDK_ROOT/platforms/android-29/android.jar --release --output . src/main/java/com/main/*.class 
               $ANDROID_SDK_ROOT/build-tools/29.0.3/aapt add res.apk classes.dex 
               $ANDROID_SDK_ROOT/build-tools/29.0.3/zipalign -p 4 res.apk res.apk 
               keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias 
