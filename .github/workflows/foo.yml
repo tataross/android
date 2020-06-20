@@ -9,6 +9,7 @@ jobs:
           with:
               java-version: 13
         - run: |
+              ls $ANDROID_SDK_ROOT/build-tools
               aapt2 compile --dir src/main/res　-o res.apk
               aapt2 link -I $ANDROID_SDK_ROOT/platforms/android-29/android.jar --manifest src/main/AndroidManifest.xml --java src/main/java res.apk -o res.apk
               javac src/main/java/main/*.java -cp $ANDROID_SDK_ROOT/platforms/android-29/android.jar
