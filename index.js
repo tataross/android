@@ -1,1 +1,1 @@
-
+import squared from 'squared'
