@@ -1,1 +1,7 @@
-
+{
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "squared": "latest"
+  }
+}
