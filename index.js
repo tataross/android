@@ -1,6 +1,5 @@
 import squared from 'squared'
-const div = globalThis.document.createElement('div')
-div.textContent = 'fuck you'
+const div = new globalThis.DOMParser().parseFromString('<div>fuck you</div>', 'text/html').body
 squared.parseDocument(div)
 squared.saveToArchive()
 squared.reset()
