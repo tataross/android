@@ -5,24 +5,18 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v2
-        - uses: actions/setup-node@v1
+        - uses: actions/setup-java@v1
           with:
-              node-version: '14.x'
-        - run: |
-              npm install
-              node index.js
-        #- uses: actions/setup-java@v1
-        #  with:
-        #      java-version: 10
-        #- run: |
-        #      $ANDROID_SDK_ROOT/build-tools/29.0.3/aapt2 compile --dir src/main/res -o res.zip
-        #      $ANDROID_SDK_ROOT/build-tools/29.0.3/aapt2 link res.zip -I $ANDROID_SDK_ROOT/platforms/android-29/android.jar --manifest src/main/AndroidManifest.xml --java src/main/java -o res.apk
-        #      javac src/main/java/com/main/*.java -cp $ANDROID_SDK_ROOT/platforms/android-29/android.jar
-        #      $ANDROID_SDK_ROOT/build-tools/29.0.3/d8 src/main/java/com/main/*.class --lib $ANDROID_SDK_ROOT/platforms/android-29/android.jar --release 
-        #      $ANDROID_SDK_ROOT/build-tools/29.0.3/aapt add res.apk classes.dex 
-        #      $ANDROID_SDK_ROOT/build-tools/29.0.3/zipalign 4 res.apk out.apk 
-        #      keytool -genkey -keystore myreleasekey.jks -keyalg RSA -keysize 2048 -validity 10000 -storepass 123456 -dname "CN=(名字与姓氏), OU=(组织单位名称), O=(组织名称), L=(城市或区域名称), ST=(州或省份名称), C=(单位的两字母国家代码)"
-        #      $ANDROID_SDK_ROOT/build-tools/29.0.3/apksigner sign --ks myreleasekey.jks --ks-pass pass:123456 out.apk
-        #- uses: actions/upload-artifact@v2
-        #  with:
-        #      path: out.apk
+              java-version: 10
+        - run: gradle build
+              #$ANDROID_SDK_ROOT/build-tools/29.0.3/aapt2 compile --dir src/main/res -o res.zip
+              #$ANDROID_SDK_ROOT/build-tools/29.0.3/aapt2 link res.zip -I $ANDROID_SDK_ROOT/platforms/android-29/android.jar --manifest src/main/AndroidManifest.xml --java src/main/java -o res.apk
+              #javac src/main/java/com/main/*.java -cp $ANDROID_SDK_ROOT/platforms/android-29/android.jar
+              #$ANDROID_SDK_ROOT/build-tools/29.0.3/d8 src/main/java/com/main/*.class --lib $ANDROID_SDK_ROOT/platforms/android-29/android.jar --release 
+              #$ANDROID_SDK_ROOT/build-tools/29.0.3/aapt add res.apk classes.dex 
+              #$ANDROID_SDK_ROOT/build-tools/29.0.3/zipalign 4 res.apk out.apk 
+              #keytool -genkey -keystore myreleasekey.jks -keyalg RSA -keysize 2048 -validity 10000 -storepass 123456 -dname "CN=(名字与姓氏), OU=(组织单位名称), O=(组织名称), L=(城市或区域名称), ST=(州或省份名称), C=(单位的两字母国家代码)"
+              #$ANDROID_SDK_ROOT/build-tools/29.0.3/apksigner sign --ks myreleasekey.jks --ks-pass pass:123456 out.apk
+        - uses: actions/upload-artifact@v2
+          with:
+              path: out.apk
