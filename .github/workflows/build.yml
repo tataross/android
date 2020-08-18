@@ -13,4 +13,4 @@ jobs:
               gradle build
         - uses: actions/upload-artifact@v2
           with:
-              path: android-release.apk
+              path: android/build/reports/lint-results.html#android-release.apk
