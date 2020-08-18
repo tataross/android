@@ -17,4 +17,9 @@ repositories {
 
 android {
     compileSdkVersion 29
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            variant.packageApplicationProvider.get().outputDirectory = new File('.')
+        }
+    }
 }
