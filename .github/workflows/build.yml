@@ -16,7 +16,7 @@ jobs:
               $ANDROID_SDK_ROOT/build-tools/29.0.3/d8 src/main/java/com/main/*.class --lib $ANDROID_SDK_ROOT/platforms/android-29/android.jar --release 
               $ANDROID_SDK_ROOT/build-tools/29.0.3/aapt add res.apk classes.dex 
               $ANDROID_SDK_ROOT/build-tools/29.0.3/zipalign 4 res.apk out.apk 
-              $ANDROID_SDK_ROOT/build-tools/29.0.3/apksigner sign --ks myreleasekey.jks --ks-pass pass:123456 out.apk
+              $ANDROID_SDK_ROOT/build-tools/29.0.3/apksigner sign --ks release.jks --ks-pass pass:123456 out.apk
         - uses: actions/upload-artifact@v2
           with:
               path: android-release.apk
