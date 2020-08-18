@@ -10,8 +10,6 @@ public class MainActivity extends Activity
     protected void onCreate(final Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        final var text = new TextView(this);
-        text.setText("hellow");
-        setContentView(text);
+        setContentView(R.layout.activity_main);
     }
 }
