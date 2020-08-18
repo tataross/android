@@ -17,6 +17,9 @@ repositories {
 
 android {
     compileSdkVersion 30
+    defaultConfig {
+        targetSdkVersion 30
+    }
     signingConfigs {
         release {
             keyAlias 'release'
