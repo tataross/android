@@ -19,7 +19,7 @@ import android.widget.RelativeLayout;
 public class MainActivity extends Activity   
 {
     @Override  
-    public void onCreate(Bundle savedInstanceState)   
+    public void onCreate(final Bundle savedInstanceState)   
     {
         super.onCreate(savedInstanceState);  
         RelativeLayout relativeLayout = new RelativeLayout(this);  
