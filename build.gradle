@@ -1,7 +1,6 @@
 buildscript {
     repositories {
         google()
-        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.0'
@@ -17,17 +16,4 @@ repositories {
 
 android {
     compileSdkVersion 29
-
-    defaultConfig {
-        applicationId "com.example.android.shortcutsample"
-        minSdkVersion 25
-        targetSdkVersion 29
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-        }
-    }
 }
