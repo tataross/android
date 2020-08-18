@@ -20,6 +20,10 @@ android {
     defaultConfig {
         targetSdkVersion 30
     }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_12
+        sourceCompatibility JavaVersion.VERSION_12
+    }
     signingConfigs {
         release {
             keyAlias 'release'
