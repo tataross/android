@@ -2,6 +2,7 @@ package com.main;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class MainActivity extends Activity
 {
@@ -9,6 +10,8 @@ public class MainActivity extends Activity
     protected void onCreate(final Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        final var text = new TextView(this);
+        text.setText("hellow");
+        setContentView(text);
     }
 }
