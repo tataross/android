@@ -31,7 +31,7 @@ android {
     }
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
-            variant.packageApplicationProvider.get().outputDirectory = new File('.')
+            variant.packageApplicationProvider.get().outputDirectory = file('.')
         }
     }
 }
