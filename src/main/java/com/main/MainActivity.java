@@ -1,8 +1,7 @@
 package com.main;
  
 import android.os.Bundle;  
-import android.app.Activity;  
-import android.view.Menu;  
+import android.app.Activity; 
 import android.widget.Button;  
 import android.widget.RelativeLayout;
 
