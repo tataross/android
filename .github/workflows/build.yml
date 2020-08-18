@@ -21,4 +21,4 @@ jobs:
               #$ANDROID_SDK_ROOT/build-tools/29.0.3/apksigner sign --ks myreleasekey.jks --ks-pass pass:123456 out.apk
         - uses: actions/upload-artifact@v2
           with:
-              path: app-release.apk
+              path: android-release.apk
