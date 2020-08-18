@@ -45,6 +45,6 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile files(System.getenv('ANDROID_SDK_ROOT')+'/platforms/android-30/android.jar')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation files(System.getenv('ANDROID_SDK_ROOT')+'/platforms/android-30/android.jar')
 }
