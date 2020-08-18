@@ -11,17 +11,12 @@ buildscript {
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         applicationId "com.example.android.shortcutsample"
         minSdkVersion 25
-        targetSdkVersion 28
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        targetSdkVersion 29
     }
 
     buildTypes {
