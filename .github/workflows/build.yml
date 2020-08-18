@@ -13,4 +13,4 @@ jobs:
               gradle build -Dorg.gradle.warning.mode=all
         - uses: actions/upload-artifact@v2
           with:
-              path: android/build/reports/lint-results.html#android-release.apk
+              path: android-release.apk
