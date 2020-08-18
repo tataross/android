@@ -20,7 +20,10 @@ android {
     defaultConfig {
         targetSdkVersion 30
     }
-    signingConfigs {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_10
+        targetCompatibility JavaVersion.VERSION_10
+    }igningConfigs {
         release {
             keyAlias 'release'
             keyPassword '123456'
