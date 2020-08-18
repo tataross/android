@@ -1,9 +1,5 @@
 package com.main;
-
-import android.app.Activity;  
-import android.os.Bundle;  
-import android.widget.Button;  
-import android.widget.RelativeLayout;  
+  
 import android.content.ContentValues;  
 import android.content.Context;  
 import android.database.Cursor;  
