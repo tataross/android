@@ -10,6 +10,11 @@ buildscript {
 
 apply plugin: 'com.android.application'
 
+repositories {
+    google()
+    jcenter()
+} 
+
 android {
     compileSdkVersion 29
 
