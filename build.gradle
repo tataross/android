@@ -17,19 +17,6 @@ repositories {
 
 android {
     compileSdkVersion 29
-    igningConfigs {
-        release {
-            keyAlias 'release'
-            keyPassword '123456'
-            storeFile file('release.jks')
-            storePassword '123456'
-        }
-    }
-    buildTypes {
-        release {
-            signingConfig signingConfigs.release
-        }
-    }
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
             variant.packageApplicationProvider.get().outputDirectory = file('.')
