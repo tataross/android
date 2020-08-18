@@ -21,8 +21,8 @@ android {
         targetSdkVersion 30
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_10
-        targetCompatibility JavaVersion.VERSION_10
+        sourceCompatibility JavaVersion.VERSION_12
+        targetCompatibility JavaVersion.VERSION_12
     }igningConfigs {
         release {
             keyAlias 'release'
