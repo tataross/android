@@ -11,7 +11,7 @@ public class MainActivity extends Activity
     public void onCreate(final Bundle savedInstanceState)   
     {
         super.onCreate(savedInstanceState);  
-        Button relativeLayout = new RelativeLayout(this);  
+        RelativeLayout relativeLayout = new RelativeLayout(this);  
         RelativeLayout.LayoutParams relativeLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.FILL_PARENT);  
         Button button1 = new Button(this);  
         button1.setText("Button1");  
