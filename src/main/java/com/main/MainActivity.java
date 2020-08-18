@@ -12,7 +12,7 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);  
         RelativeLayout relativeLayout = new RelativeLayout(this);  
-        RelativeLayout.LayoutParams relativeLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.FILL_PARENT);  
+        RelativeLayout.LayoutParams relativeLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);  
         Button button1 = new Button(this);  
         button1.setText("Button1");  
         Button button2 = new Button(this);  
