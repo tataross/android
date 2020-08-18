@@ -17,9 +17,6 @@ repositories {
 
 android {
     compileSdkVersion 29
-    defaultConfig {
-        targetSdkVersion 29
-    }
     igningConfigs {
         release {
             keyAlias 'release'
