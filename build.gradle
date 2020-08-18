@@ -39,6 +39,7 @@ android {
     }
     packagingOptions {
         exclude 'AndroidManifest.xml'
+        exclude 'resources.arsc'
     }
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
