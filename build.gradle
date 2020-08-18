@@ -19,6 +19,7 @@ android {
     compileSdkVersion 29
     signingConfigs {
         release {
+            keyAlias 'release'
             keyPassword '123456'
             storeFile file('release.jks')
             storePassword '123456'
