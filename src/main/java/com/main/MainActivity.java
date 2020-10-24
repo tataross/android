@@ -11,9 +11,9 @@ public class MainActivity extends android.app.Activity
         super.onCreate(savedInstanceState);  
         final var body = new ConstraintLayout(this);
         final var text = new TextView(this);
-        try
+        try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(super.getAssets().open("file.txt"), java.nio.charset.StandardCharsets.UTF_8)))
         {
-            text.setText(new java.io.BufferedReader(new java.io.InputStreamReader(super.getAssets().open("file.txt"), java.nio.charset.StandardCharsets.UTF_8)).lines().collect(java.util.stream.Collectors.joining("\n")));
+            text.setText(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
         }
         catch (Exception error){}
         body.addView(text);  
