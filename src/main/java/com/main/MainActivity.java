@@ -11,7 +11,8 @@ public class MainActivity extends android.app.Activity
         super.onCreate(savedInstanceState);  
         final var body = new ConstraintLayout(this);
         final var text = new TextView(this);
-        body.addView(button1);  
+        text.setText("fuck you");
+        body.addView(text);  
         super.setContentView(body, new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT));
     }
 }
