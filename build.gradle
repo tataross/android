@@ -39,7 +39,7 @@ android {
         }
     }
     packagingOptions {
-        exclude 'res'
+        exclude 'res/**'
     }
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
