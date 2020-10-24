@@ -11,11 +11,12 @@ public class MainActivity extends android.app.Activity
         super.onCreate(savedInstanceState);  
         final var relativeLayout = new RelativeLayout(this);
         final var button1 = new Button(this);
-        try (final var assets = super.getAssets())
+        /*try (final var assets = super.getAssets())
         {
             button1.setText(java.util.Arrays.toString(assets.list("")));
         }
-        catch (Exception e){}
+        catch (Exception e){}*/
+        button1.setText("aes");
         relativeLayout.addView(button1);  
         super.setContentView(relativeLayout, new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
     }  
