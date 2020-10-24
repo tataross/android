@@ -1,14 +1,12 @@
 package com.main;
  
-import android.os.Bundle;  
-import android.app.Activity; 
 import android.widget.Button;  
 import android.widget.RelativeLayout;
 
-public class MainActivity extends Activity   
+public class MainActivity extends android.app.Activity   
 {
     @Override  
-    public void onCreate(final Bundle savedInstanceState)   
+    public void onCreate(final android.os.Bundle savedInstanceState)   
     {
         super.onCreate(savedInstanceState);  
         var relativeLayout = new RelativeLayout(this);  
