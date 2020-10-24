@@ -14,7 +14,8 @@ public class MainActivity extends android.app.Activity
         try (final var assets = super.getAssets())
         {
             button1.setText(java.util.Arrays.toString(assets.list("")));
-        }        
+        }
+        catch (Exception e){}
         relativeLayout.addView(button1);  
         super.setContentView(relativeLayout, new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
     }  
