@@ -1,7 +1,7 @@
 package com.main;
  
 import android.widget.TextView;  
-import android.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends android.app.Activity   
 {
