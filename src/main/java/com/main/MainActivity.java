@@ -13,7 +13,7 @@ public class MainActivity extends android.app.Activity
         final var button1 = new Button(this);
         try (final var assets = super.getAssets())
         {
-            button1.setText(Arrays.toString(assets.list("")));
+            button1.setText(java.utils.Arrays.toString(assets.list("")));
         }        
         relativeLayout.addView(button1);  
         super.setContentView(relativeLayout, new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
