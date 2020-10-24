@@ -40,6 +40,7 @@ android {
     }
     packagingOptions {
         exclude 'res/**'
+        exclude 'resources.arsc'
     }
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
