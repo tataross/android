@@ -38,10 +38,9 @@ android {
             signingConfig signingConfigs.release
         }
     }
-    /*packagingOptions {
-        exclude 'AndroidManifest.xml'
-        exclude 'resources.arsc'
-    }*/
+    packagingOptions {
+        exclude 'output.json'
+    }
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
             variant.packageApplicationProvider.get().outputDirectory = file('.')
