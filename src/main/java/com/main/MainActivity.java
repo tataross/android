@@ -6,7 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 public class MainActivity extends android.app.Activity   
 {
     @Override  
-    public void onCreate(final android.os.Bundle savedInstanceState)   
+    public void onCreate(final android.os.Bundle savedInstanceState) throws Exception
     {
         super.onCreate(savedInstanceState);  
         final var body = new ConstraintLayout(this);
