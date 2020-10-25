@@ -11,7 +11,16 @@ public class MainActivity extends android.app.Activity
         super.onCreate(savedInstanceState);  
         final var body = new ConstraintLayout(this);
         final var button = new Button(this);
-        button.setText("njion");
+        try {
+            final var is = context.getAssets().open("file.txt");
+            final var size = is.available();
+            final var buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            button.setText(new String(buffer, "UTF-8"));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
         /*try (final var assets = super.getAssets())
         {
             button1.setText(java.util.Arrays.toString(assets.list("")));
