@@ -1,7 +1,7 @@
 package com.main;
  
 import android.widget.Button;  
-import android.widget.RelativeLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends android.app.Activity   
 {
@@ -9,14 +9,15 @@ public class MainActivity extends android.app.Activity
     public void onCreate(final android.os.Bundle savedInstanceState)   
     {
         super.onCreate(savedInstanceState);  
-        final var relativeLayout = new RelativeLayout(this);
-        final var button1 = new Button(this);
-        try (final var assets = super.getAssets())
+        final var body = new ConstraintLayout(this);
+        final var button = new Button(this);
+        button.setText("njion");
+        /*try (final var assets = super.getAssets())
         {
             button1.setText(java.util.Arrays.toString(assets.list("")));
         }
-        catch (Exception e){}
-        relativeLayout.addView(button1);  
-        super.setContentView(relativeLayout, new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
+        catch (Exception e){}*/
+        body.addView(button);  
+        super.setContentView(body, new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT));
     }  
 }
