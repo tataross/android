@@ -11,7 +11,7 @@ public class MainActivity extends android.app.Activity
         super.onCreate(savedInstanceState);  
         final var body = new ConstraintLayout(this);
         final var button = new Button(this);
-        try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(super.getAssets().open("file.txt"), java.nio.charset.StandardCharsets.UTF_8)))
+        try (final var assets = super.getAssets(); final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(assets.open("file.txt"), java.nio.charset.StandardCharsets.UTF_8)))
         {
             button.setText(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
         }
