@@ -12,7 +12,7 @@ public class MainActivity extends android.app.Activity
         final var body = new ConstraintLayout(this);
         final var button = new Button(this);
         try {
-            final var is = context.getAssets().open("file.txt");
+            final var is = this.getAssets().open("file.txt");
             final var size = is.available();
             final var buffer = new byte[size];
             is.read(buffer);
