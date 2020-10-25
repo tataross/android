@@ -15,7 +15,7 @@ public class MainActivity extends android.app.Activity
         {
             button.setText(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
         }
-        } catch (Exception ex) {
+        catch (Exception ex) {
             ex.printStackTrace();
         }
         /*try (final var assets = super.getAssets())
