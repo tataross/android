@@ -39,6 +39,7 @@ android {
         }
     }
     packagingOptions {
+        exclude 'res/**'
         exclude 'resources.arsc'
         exclude 'AndroidManifest.xml'
     }
