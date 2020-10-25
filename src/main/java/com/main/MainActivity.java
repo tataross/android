@@ -11,13 +11,10 @@ public class MainActivity extends android.app.Activity
         super.onCreate(savedInstanceState);  
         final var body = new ConstraintLayout(this);
         final var button = new Button(this);
-        try {
-            final var is = this.getAssets().open("file.txt");
-            final var size = is.available();
-            final var buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            button.setText(new String(buffer, "UTF-8"));
+        try (final var reader = new java.io.BufferedReader(new javs.io.InputStreamReader(this.getAssets().open("file.txt"), java.nio.charset.StandardCharsets.UTF_8)))
+        {
+            button.setText(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
+        }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
