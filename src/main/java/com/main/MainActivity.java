@@ -18,7 +18,7 @@ public class MainActivity extends android.app.Activity
             is.read(buffer);
             is.close();
             button.setText(new String(buffer, "UTF-8"));
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         /*try (final var assets = super.getAssets())
