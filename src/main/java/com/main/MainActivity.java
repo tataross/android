@@ -15,7 +15,7 @@ public class MainActivity extends android.app.Activity
         {
             button.setText(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
         }
-        catch (Exception error) {}
+        //catch (Exception error) {}
         body.addView(button);  
         super.setContentView(body, new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT));
     }  
