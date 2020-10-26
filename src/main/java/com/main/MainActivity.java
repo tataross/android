@@ -13,7 +13,7 @@ public class MainActivity extends android.app.Activity
         final var button = new Button(this);
         try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(super.getAssets().open("index.html"), java.nio.charset.StandardCharsets.UTF_8)))
         {
-            final var document = Jsoup.parse(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
+            final var document = org.jsoup.Jsoup.parse(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
             button.setText(document.body.html());
         }
         catch (Exception error) {}
