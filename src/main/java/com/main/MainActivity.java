@@ -15,7 +15,7 @@ public class MainActivity extends android.app.Activity
         else
         {
             final var body = new ConstraintLayout(this);
-            body.setLayoutParams(ConstraintLayout);
+            body.setLayoutParams(new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT));
             for (final var $: element.children()) body.addView(this.parse($));
             return body;
         }
