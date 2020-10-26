@@ -9,7 +9,7 @@ public class MainActivity extends android.app.Activity
         if (element.childrenSize() == 0)
         {
             final var button = new android.widget.Button(this);
-            Button.setText(element.text());
+            button.setText(element.text());
             return button;
         }
         else
