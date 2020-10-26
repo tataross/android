@@ -4,7 +4,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends android.app.Activity   
 {
-    private android.view.View parse(final org.jsoup.select.Element element)
+    private android.view.View parse(final org.jsoup.nodes.Element element)
     {
         if (element.childrenSize() == 0)
         {
