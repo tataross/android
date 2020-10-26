@@ -1,6 +1,6 @@
 package com.main;
   
-import androidx.constraintlayout.widget.ConstraintLayout;
+import android.widget.LinearLayout;
 
 public class MainActivity extends android.app.Activity   
 {
@@ -14,8 +14,9 @@ public class MainActivity extends android.app.Activity
         }
         else
         {
-            final var body = new ConstraintLayout(this);
-            body.setLayoutParams(new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT));
+            final var body = new LinearLayout(this);
+            body.setOrientation(LinearLayout.VERTICAL);
+            //body.setLayoutParams(new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT));
             for (final var $: element.children()) body.addView(this.parse($));
             return body;
         }
