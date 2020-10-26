@@ -10,7 +10,7 @@ public class MainActivity extends android.app.Activity
     {
         super.onCreate(savedInstanceState);  
         final var body = new ConstraintLayout(this);
-        StringBuilder a;
+        final var a = new StringBuilder();
         try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(super.getAssets().open("index.html"), java.nio.charset.StandardCharsets.UTF_8)))
         {
             final var document = org.jsoup.Jsoup.parse(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
