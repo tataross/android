@@ -26,7 +26,7 @@ public class MainActivity extends android.app.Activity
         try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(super.getAssets().open("index.html"), java.nio.charset.StandardCharsets.UTF_8)))
         {
             final var document = org.jsoup.Jsoup.parse(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
-            super.setContentView(this.parse(document.body()), new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT));
+            super.setContentView(this.parse(document.body()));
         }
         catch (Exception error){} 
     }  
