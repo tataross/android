@@ -17,6 +17,7 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
+        - uses: actions/checkout@main
         - uses: actions/setup-node@main
           with:
               node-version: 17.x
@@ -27,3 +28,4 @@ jobs:
         - run: |
               npm install appium webdriverio
               `npm bin`/appium &
+              node android.js
