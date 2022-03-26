@@ -27,7 +27,7 @@ jobs:
               distribution: zulu
         - run: |
               npm install appium webdriverio
-              `npm bin`/appium &
+              `npm bin`/appium
               curl https://chaowenguoorg.github.io/common/package.json > package.json
               sleep 10s
               #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
@@ -35,7 +35,7 @@ jobs:
               echo 'no' | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n android -k 'system-images;android-32;google_apis;x86_64'
               sudo apt update
               sudo apt install -y --no-install-recommends pulseaudio
-              $ANDROID_HOME/emulator/emulator -avd android &
+              $ANDROID_HOME/emulator/emulator -avd android
               $ANDROID_HOME/emulator/emulator -list-avds
-              #/usr/local/lib/android/sdk/platform-tools/adb devices
-              #node android.js
+              /usr/local/lib/android/sdk/platform-tools/adb devices
+              node android.js
