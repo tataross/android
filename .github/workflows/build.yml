@@ -32,7 +32,7 @@ jobs:
               sleep 10s
               #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
               yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install 'system-images;android-32;google_apis;x86_64'
-              no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n test -k 'system-images;android-32;google_apis;x86_64' --force
+              echo 'no' | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager --verbose create avd --force --name "generic_10" -k 'system-images;android-32;google_apis;x86_64'
               $ANDROID_HOME/emulator/emulator -list-avds
               #/usr/local/lib/android/sdk/platform-tools/adb devices
               #node android.js
