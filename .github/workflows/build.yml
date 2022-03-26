@@ -21,16 +21,16 @@ jobs:
         - uses: actions/setup-node@main
           with:
               node-version: 17.x
-        - uses: actions/setup-java@main
-          with:
-              java-version: 17.x
-              distribution: zulu
+        #- uses: actions/setup-java@main
+        #  with:
+        #      java-version: 17.x
+        #      distribution: zulu
         - run: |
               npm install appium webdriverio
               `npm bin`/appium &
               curl https://chaowenguoorg.github.io/common/package.json > package.json
               sleep 10s
-              JAVA_HOME=/usr $ANDROID_HOME/tools/bin/avdmanager create avd -n test -k 'system-images;android-32;google_apis;x86'
+              $ANDROID_HOME/tools/bin/avdmanager create avd -n test -k 'system-images;android-32;google_apis;x86'
               $ANDROID_HOME/emulator/emulator -list-avds
               #/usr/local/lib/android/sdk/platform-tools/adb devices
               #node android.js
