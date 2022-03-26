@@ -37,5 +37,5 @@ jobs:
               sudo apt install -y --no-install-recommends pulseaudio
               $ANDROID_HOME/emulator/emulator -avd android
               $ANDROID_HOME/emulator/emulator -list-avds
-              /usr/local/lib/android/sdk/platform-tools/adb devices
-              node android.js
+              #/usr/local/lib/android/sdk/platform-tools/adb devices
+              #node android.js
