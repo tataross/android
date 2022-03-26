@@ -31,6 +31,6 @@ jobs:
               curl https://chaowenguoorg.github.io/common/package.json > package.json
               sleep 10s
               $ANDROID_HOME/tools/bin/avdmanager create avd -n test -k 'system-images;android-32;google_apis;x86' || true
-              $ANDROID_HOME/emulator -list-avds
+              $ANDROID_HOME/emulator/emulator -list-avds
               #/usr/local/lib/android/sdk/platform-tools/adb devices
               #node android.js
