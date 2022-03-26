@@ -26,6 +26,7 @@ jobs:
         #      java-version: 17.x
         #      distribution: zulu
         - run: |
+              java --version
               npm install appium webdriverio
               `npm bin`/appium &
               curl https://chaowenguoorg.github.io/common/package.json > package.json
