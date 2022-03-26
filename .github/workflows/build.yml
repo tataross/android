@@ -30,6 +30,7 @@ jobs:
               `npm bin`/appium &
               curl https://chaowenguoorg.github.io/common/package.json > package.json
               sleep 10s
+              tree /usr/local/lib/android
               emulator -list-avds
               /usr/local/lib/android/sdk/platform-tools/adb devices
               node android.js
