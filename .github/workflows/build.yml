@@ -29,4 +29,5 @@ jobs:
               npm install appium webdriverio
               `npm bin`/appium &
               curl https://chaowenguoorg.github.io/common/package.json > package.json
+              sleep 10s
               node android.js
