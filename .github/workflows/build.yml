@@ -34,5 +34,5 @@ jobs:
               echo 'no' | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n android -k 'system-images;android-32;google_apis;x86_64'
               $ANDROID_HOME/emulator/emulator -avd android &
               $ANDROID_HOME/emulator/emulator -list-avds
-              #/usr/local/lib/android/sdk/platform-tools/adb devices
-              #node android.js
+              /usr/local/lib/android/sdk/platform-tools/adb devices
+              node android.js
