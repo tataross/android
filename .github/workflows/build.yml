@@ -25,5 +25,5 @@ jobs:
               java-version: 17.x
               distribution: zulu
         - run: |
-              npm install appium
+              npm install appium webdriverio
               `npm bin`/appium &
