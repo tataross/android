@@ -30,8 +30,7 @@ jobs:
               `npm bin`/appium &
               curl https://chaowenguoorg.github.io/common/package.json > package.json
               sleep 10s
-              file $ANDROID_HOME/tools
-              $ANDROID_HOME/tools/bin/avdmanager create avd -n test -k 'system-images;android-32;google_apis;x86'
+              $ANDROID_HOME/cmdline-tools/bin/avdmanager create avd -n test -k 'system-images;android-32;google_apis;x86'
               $ANDROID_HOME/emulator/emulator -list-avds
               #/usr/local/lib/android/sdk/platform-tools/adb devices
               #node android.js
