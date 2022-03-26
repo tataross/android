@@ -7,7 +7,7 @@ const opts = {
   capabilities: {
     platformName: "Android",
     platformVersion: "8",
-    deviceName: "Android Emulator",
+    deviceName: "android",
     app: "ApiDemos-debug.apk",
     appPackage: "io.appium.android.apis",
     appActivity: ".view.TextFields",
