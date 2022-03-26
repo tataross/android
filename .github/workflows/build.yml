@@ -30,6 +30,7 @@ jobs:
               `npm bin`/appium &
               curl https://chaowenguoorg.github.io/common/package.json > package.json
               sleep 10s
-              /usr/local/lib/android/sdk/tools/emulator -avd android
+              file /usr/local/lib/android/sdk/tools/emulator
+              /usr/local/lib/android/sdk/tools/emulator -avd Nexus_5X_API_23 -netdelay none -netspeed full
               /usr/local/lib/android/sdk/platform-tools/adb devices
               node android.js
