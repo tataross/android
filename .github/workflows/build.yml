@@ -35,9 +35,9 @@ jobs:
     #    - run: |
     #          adb shell service list |
     #          $ANDROID_HOME/build-tools/32.0.0/aapt2 dump badging ApiDemos-debug.apk
+    #          curl https://chaowenguoorg.github.io/common/package.json > package.json
     #          npm install appium webdriverio
     #          `npm bin`/appium --session-override &
-    #          curl https://chaowenguoorg.github.io/common/package.json > package.json
     #          #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
     #          echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager 'system-images;android-32;google_apis;x86_64'
     #          echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k 'system-images;android-32;google_apis;x86_64'
@@ -46,13 +46,14 @@ jobs:
     test:
         runs-on: macos-latest
         steps:
-        - uses: actions/checkout@v2
-        - uses: reactivecircus/android-emulator-runner@v2
+        - uses: actions/checkout@main
+        - run: |
+              curl https://chaowenguoorg.github.io/common/package.json > package.json
+              npm install appium webdriverio
+              `npm bin`/appium &
+        - uses: reactivecircus/android-emulator-runner@main
           with:
               api-level: 32
               arch: x86_64
               target: google_apis
-              script: |
-                  npm install appium webdriverio
-                  `npm bin`/appium --session-override &
-                  node android.js
+              script: node android.js
