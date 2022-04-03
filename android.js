@@ -6,11 +6,10 @@ const opts = {
   port: 4723,
   capabilities: {
     platformName: 'Android',
-    deviceName: 'Android Emulator',
     automationName: 'UiAutomator2',
     app: 'ApiDemos-debug.apk'
   }
-};
+}
 
-const client = await webdriverio.remote(opts);
-//await client.deleteSession();
+const client = await webdriverio.remote(opts)
+await client.deleteSession()
