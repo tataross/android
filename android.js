@@ -6,7 +6,6 @@ const opts = {
   port: 4723,
   capabilities: {
     platformName: "Android",
-    platformVersion: "8",
     deviceName: "android",
     app: "ApiDemos-debug.apk",
     appPackage: "io.appium.android.apis",
