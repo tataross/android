@@ -9,9 +9,7 @@ const opts = {
     platformVersion: '12',
     deviceName: 'Android Emulator',
     automationName: 'UiAutomator2',
-    app: 'ApiDemos-debug.apk',
-    appPackage: 'io.appium.android.apis',
-    appActivity: ".view.TextFields"
+    app: 'ApiDemos-debug.apk'
   }
 };
 
