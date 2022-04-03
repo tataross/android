@@ -6,7 +6,7 @@ const opts = {
   port: 4723,
   capabilities: {
     platformName: 'Android',
-    platformVersion: '11',
+    platformVersion: '12',
     deviceName: 'Android Emulator',
     automationName: 'UiAutomator2',
     app: 'ApiDemos-debug.apk',
