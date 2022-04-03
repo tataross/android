@@ -45,5 +45,6 @@ jobs:
           with:
               api-level: 32
               arch: x86_64
+              target: google_apis
               script: echo haha
 
