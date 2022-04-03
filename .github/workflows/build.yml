@@ -37,14 +37,13 @@ jobs:
     #          $ANDROID_HOME/emulator/emulator -list-avds
     #          /usr/local/lib/android/sdk/platform-tools/adb devices
     #          node android.js
-    test:
-        runs-on: macos-latest
-        steps:
-        - uses: actions/checkout@v2
-        - uses: reactivecircus/android-emulator-runner@v2
-          with:
-              api-level: 32
-              arch: x86_64
-              target: google_apis
-              script: echo haha
-
+    #test:
+    #    runs-on: macos-latest
+    #    steps:
+    #    - uses: actions/checkout@v2
+    #    - uses: reactivecircus/android-emulator-runner@v2
+    #      with:
+    #          api-level: 32
+    #          arch: x86_64
+    #          target: google_apis
+    #          script: echo haha
