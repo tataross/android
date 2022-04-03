@@ -52,4 +52,7 @@ jobs:
               api-level: 32
               arch: x86_64
               target: google_apis
-              script: npm install appium webdriverio && `npm bin`/appium --session-override & && node android.js
+              script: |
+                  npm install appium webdriverio
+                  `npm bin`/appium --session-override &
+                  node android.js
