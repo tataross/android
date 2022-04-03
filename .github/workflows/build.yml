@@ -47,6 +47,13 @@ jobs:
         runs-on: macos-latest
         steps:
         - uses: actions/checkout@main
+        - uses: actions/setup-node@main
+          with:
+               node-version: 17.x
+        - uses: actions/setup-java@main
+          with:
+              java-version: 17.x
+              distribution: zulu
         - run: |
               curl https://chaowenguoorg.github.io/common/package.json > package.json
               npm install appium webdriverio
