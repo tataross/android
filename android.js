@@ -6,6 +6,7 @@ const opts = {
   port: 4723,
   capabilities: {
     platformName: "Android",
+    deviceName: "haha",
     app: "ApiDemos-debug.apk",
     appPackage: "io.appium.android.apis",
     appActivity: ".view.TextFields"
