@@ -14,26 +14,35 @@ jobs:
         - uses: actions/upload-artifact@v2
           with:
               path: android-release.apk
+    #test:
+    #    runs-on: macos-latest
+    #    steps:
+    #    - uses: actions/checkout@main
+    #    - uses: actions/setup-node@main
+    #      with:
+    #          node-version: 17.x
+    #    - uses: actions/setup-java@main
+    #      with:
+    #          java-version: 17.x
+    #          distribution: zulu
+    #    - run: |
+    #          sysctl kern.hv_support
+    #          npm install appium webdriverio
+    #          `npm bin`/appium &
+    #          curl https://chaowenguoorg.github.io/common/package.json > package.json
+    #          #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
+    #          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install 'system-images;android-32;google_apis;x86_64'
+    #          echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n android -k 'system-images;android-32;google_apis;x86_64'
+    #          $ANDROID_HOME/emulator/emulator -avd android &
+    #          $ANDROID_HOME/emulator/emulator -list-avds
+    #          /usr/local/lib/android/sdk/platform-tools/adb devices
+    #          node android.js
     test:
         runs-on: macos-latest
         steps:
-        - uses: actions/checkout@main
-        - uses: actions/setup-node@main
+        - uses: actions/checkout@v2
+        - uses: reactivecircus/android-emulator-runner@v2
           with:
-              node-version: 17.x
-        - uses: actions/setup-java@main
-          with:
-              java-version: 17.x
-              distribution: zulu
-        - run: |
-              sysctl kern.hv_support
-              npm install appium webdriverio
-              `npm bin`/appium &
-              curl https://chaowenguoorg.github.io/common/package.json > package.json
-              #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
-              yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install 'system-images;android-32;google_apis;x86_64'
-              echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n android -k 'system-images;android-32;google_apis;x86_64'
-              $ANDROID_HOME/emulator/emulator -avd android &
-              $ANDROID_HOME/emulator/emulator -list-avds
-              /usr/local/lib/android/sdk/platform-tools/adb devices
-              node android.js
+              api-level: 32
+              script: echo haha
+
