@@ -58,7 +58,7 @@ jobs:
               curl https://chaowenguoorg.github.io/common/package.json > package.json
               npm install appium webdriverio
               `npm bin`/appium &
-        - uses: reactivecircus/android-emulator-runner@main
+        - uses: reactivecircus/android-emulator-runner@v2
           with:
               api-level: 32
               arch: x86_64
