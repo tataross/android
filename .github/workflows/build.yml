@@ -26,6 +26,8 @@ jobs:
               java-version: 17.x
               distribution: zulu
         - run: |
+              ls -al $ANDROID_HOME/cmdline-tools/latest/bin
+              ls -al $ANDROID_HOME/tools/bin
               npm install appium webdriverio
               `npm bin`/appium &
               curl https://chaowenguoorg.github.io/common/package.json > package.json
