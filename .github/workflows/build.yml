@@ -33,7 +33,7 @@ jobs:
               java-version: 17.x
               distribution: zulu
         - run: |
-              $ANDROID_HOME/build-tools/32.0.0/aapt2 dump badging ApiDemos-debug.apk | grep package:\ name
+              $ANDROID_HOME/build-tools/32.0.0/aapt2 dump badging ApiDemos-debug.apk
               npm install appium webdriverio
               `npm bin`/appium &
               curl https://chaowenguoorg.github.io/common/package.json > package.json
