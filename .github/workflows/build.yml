@@ -64,3 +64,6 @@ jobs:
               arch: x86_64
               target: google_apis
               script: node android.js
+        - uses: actions/upload-artifact@main
+          with:
+              path: haha.mp4
