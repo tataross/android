@@ -1,4 +1,4 @@
-nohup "$ANDROID_HOME/emulator/emulator" -avd TestAvd -no-snapshot -no-window -no-audio -no-boot-anim -accel on -wipe-data 2>&1 &
+$ANDROID_HOME/emulator/emulator -avd android -no-snapshot -no-window -no-audio -no-boot-anim -accel on -wipe-data 2>&1 &
         
         echo "Waiting for device..."
         $ANDROID_HOME/platform-tools/adb wait-for-device shell true
