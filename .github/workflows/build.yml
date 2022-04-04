@@ -33,7 +33,7 @@ jobs:
           with:
               node-version: 17.x
         - run: |
-              brew install ffmpeg
+              #brew install ffmpeg
               curl https://chaowenguoorg.github.io/common/package.json > package.json
               npm install appium webdriverio appium-doctor
               `npm bin`/appium-doctor --android
@@ -69,6 +69,3 @@ jobs:
     #          arch: x86_64
     #          target: google_apis
     #          script: node android.js
-        - uses: actions/upload-artifact@main
-          with:
-              path: haha.mp4
