@@ -33,7 +33,8 @@ jobs:
               java-version: 17.x
               distribution: zulu
         - run: |
-              $ANDROID_HOME/build-tools/32.0.0/aapt2 dump badging ApiDemos-debug.apk
+              sudo apt update
+              sudo apt install -y --no-install-recommends ffmpeg
               curl https://chaowenguoorg.github.io/common/package.json > package.json
               npm install appium webdriverio
               `npm bin`/appium --session-override &
