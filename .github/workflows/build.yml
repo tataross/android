@@ -51,4 +51,4 @@ jobs:
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /storage/haha.mp4 haha.mp4 
         - uses: actions/upload-artifact@main
           with:
-              path: haha.png
+              path: haha.mp4
