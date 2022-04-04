@@ -25,13 +25,13 @@ jobs:
         runs-on: macos-latest
         steps:
         - uses: actions/checkout@main
-        - uses: actions/setup-node@main
-          with:
-              node-version: 17.x
         - uses: actions/setup-java@main
           with:
               java-version: 17.x
               distribution: zulu
+        - uses: actions/setup-node@main
+          with:
+              node-version: 17.x
         - run: |
               sudo apt update
               sudo apt install -y --no-install-recommends ffmpeg
