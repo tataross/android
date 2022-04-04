@@ -35,7 +35,8 @@ jobs:
         - run: |
               brew install ffmpeg
               curl https://chaowenguoorg.github.io/common/package.json > package.json
-              npm install appium webdriverio
+              npm install appium webdriverio appium-doctor
+              appium-doctor --android
               `npm bin`/appium &
               #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager 'system-images;android-32;google_apis;x86_64'
