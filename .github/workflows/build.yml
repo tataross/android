@@ -44,8 +44,9 @@ jobs:
               $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &
               $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z `getprop sys.boot_completed` ]]; do sleep 10; done'
               #node android.js
+              $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell screenrecord /sdcard/haha.mp4
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashmagnetNew.apk
-              $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell ls -al /
+              $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /sdcard/haha.mp4 haha.mp4 
         - uses: actions/upload-artifact@main
           with:
               path: haha.png
