@@ -41,6 +41,7 @@ jobs:
           with:
               node-version: 17.x
         - run: |
+              echo $ANDROID_HOME
               #brew install ffmpeg
               curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
               curl https://chaowenguoorg.github.io/common/package.json > package.json
