@@ -15,6 +15,7 @@ jobs:
         - run: |
               git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
               export PATH=depot_tools:$PATH
+              which download_from_google_storage
               git clone https://r8.googlesource.com/r8
               cd r8
               tools/gradle.py d8 r8
