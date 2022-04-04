@@ -46,7 +46,7 @@ jobs:
               node android.js
         - uses: actions/upload-artifact@main
           with:
-              path: haha.mp4
+              path: haha.png
 
     #test:
     #    runs-on: macos-latest
