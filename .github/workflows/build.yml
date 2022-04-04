@@ -55,6 +55,8 @@ jobs:
               $ANDROID_HOME/platform-tools/adb root
               #node android.js
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell screenrecord /storage/haha.mp4
+              $ANDROID_HOME/platform-tools/adb shell input keyevent KEYCODE_DPAD_DOWN
+              $ANDROID_HOME/platform-tools/adb shell input keyevent KEYCODE_ENTER
               #$ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashmagnetNew.apk
               sleep 2m
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /storage/haha.mp4 haha.mp4 
