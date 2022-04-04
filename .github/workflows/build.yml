@@ -42,7 +42,7 @@ jobs:
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k 'system-images;android-32;google_apis;x86_64'
               $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &
               $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed
-              node android.js
+              #node android.js
         - uses: actions/upload-artifact@main
           with:
               path: haha.mp4
@@ -53,7 +53,7 @@ jobs:
     #    - uses: actions/checkout@main
     #    - uses: actions/setup-node@main
     #      with:
-    #           node-version: 17.x
+    #           node-version: 17.x/Users/runner/Library/Android/sdk/platform-tools/adb shell getprop sys.boot_completed
     #    - uses: actions/setup-java@main
     #      with:
     #          java-version: 17.x
