@@ -48,7 +48,7 @@ jobs:
               #node android.js
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell screenrecord /storage/haha.mp4
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashmagnetNew.apk
-              #$ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /storage/haha.mp4 haha.mp4 
+              $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /storage/haha.mp4 haha.mp4 
         - uses: actions/upload-artifact@main
           with:
               path: haha.png
