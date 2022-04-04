@@ -49,25 +49,3 @@ jobs:
         - uses: actions/upload-artifact@main
           with:
               path: haha.png
-
-    #test:
-    #    runs-on: macos-latest
-    #    steps:
-    #    - uses: actions/checkout@main
-    #    - uses: actions/setup-node@main
-    #      with:
-    #           node-version: 17.x/Users/runner/Library/Android/sdk/platform-tools/adb shell getprop sys.boot_completed
-    #    - uses: actions/setup-java@main
-    #      with:
-    #          java-version: 17.x
-    #          distribution: zulu
-    #    - run: |
-    #          curl https://chaowenguoorg.github.io/common/package.json > package.json
-    #          npm install appium webdriverio
-    #          `npm bin`/appium &
-    #    - uses: reactivecircus/android-emulator-runner@v2
-    #      with:
-    #          api-level: 32
-    #          arch: x86_64
-    #          target: google_apis
-    #          script: node android.js
