@@ -51,7 +51,10 @@ jobs:
               #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager 'system-images;android-32;google_apis;x86_64'
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k 'system-images;android-32;google_apis;x86_64'
-              $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &
+              #$ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &
+              
+              
+              
               $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z `getprop sys.boot_completed` ]]; do sleep 10; done'
               $ANDROID_HOME/platform-tools/adb root
               #node android.js
