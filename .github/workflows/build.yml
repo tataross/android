@@ -33,8 +33,7 @@ jobs:
           with:
               node-version: 17.x
         - run: |
-              sudo apt update
-              sudo apt install -y --no-install-recommends ffmpeg
+              brew install ffmpeg
               curl https://chaowenguoorg.github.io/common/package.json > package.json
               npm install appium webdriverio
               `npm bin`/appium --session-override &
