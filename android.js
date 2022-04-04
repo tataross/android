@@ -8,7 +8,7 @@ const opts = {
   capabilities: {
     platformName: 'Android',
     automationName: 'UiAutomator2',
-    app: 'ApiDemos-debug.apk'
+    app: 'cashmagnetNew.apk'
   }
 }
 
