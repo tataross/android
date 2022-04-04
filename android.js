@@ -13,6 +13,6 @@ const opts = {
 }
 
 const client = await webdriverio.remote(opts)
-await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 60))
+await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 15))
 await fs.writeFile('haha.png', await client.takeScreenshot(), 'base64')
 await client.deleteSession()
