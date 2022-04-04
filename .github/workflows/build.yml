@@ -34,6 +34,7 @@ jobs:
               node-version: 17.x
         - run: |
               #brew install ffmpeg
+              curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
               curl https://chaowenguoorg.github.io/common/package.json > package.json
               npm install appium webdriverio appium-doctor
               `npm bin`/appium-doctor --android
