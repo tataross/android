@@ -59,7 +59,7 @@ jobs:
               do
                   focus=`$ANDROID_HOME/platform-tools/adb shell dumpsys window 2>/dev/null | grep -i mCurrentFocus`
                   echo $focus
-                  sleep 10
+                  sleep 20
                   if [[ $focus == *'Not Responding: com.android.systemui'* ]]
                   then
                       $ANDROID_HOME/platform-tools/adb shell 'input keyevent KEYCODE_ENTER;input keyevent KEYCODE_DPAD_DOWN;input keyevent KEYCODE_ENTER'
