@@ -52,12 +52,37 @@ jobs:
               #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager 'system-images;android-32;google_apis;x86_64'
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k 'system-images;android-32;google_apis;x86_64'
-              #$ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 &
+              $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 &
               
-              bash workaround.sh
+              #bash workaround.sh
               
-              #$ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z `getprop sys.boot_completed` ]]; do sleep 10; done'
-              #$ANDROID_HOME/platform-tools/adb root
+              $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z `getprop sys.boot_completed` ]]; do sleep 10; done'
+              $ANDROID_HOME/platform-tools/adb root
+              while [[ $EMU_BOOTED = 0 ]];do
+            echo "Test for current focus"
+            #        $ANDROID_HOME/platform-tools/adb shell dumpsys window
+            CURRENT_FOCUS=`$ANDROID_HOME/platform-tools/adb shell dumpsys window 2>/dev/null | grep -i mCurrentFocus`
+            echo "Current focus: ${CURRENT_FOCUS}"
+            case $CURRENT_FOCUS in
+            *"Launcher"*)
+              if [[ $first_launcher == 1 ]]; then
+                echo "Launcher seems to be ready, wait 10 sec for another popup..."
+                sleep 10
+                first_launcher=0
+              else
+                echo "Launcher is ready, Android boot completed"
+                EMU_BOOTED=1
+                rm /tmp/failed
+              fi
+            ;;
+            *"Not Responding: com.android.systemui"*)
+              echo "Dismiss System UI isn't responding alert"
+              adb shell input keyevent KEYCODE_ENTER
+              adb shell input keyevent KEYCODE_DPAD_DOWN
+              adb shell input keyevent KEYCODE_ENTER
+              first_launcher=1
+            ;;
+              
               #node android.js
               #$ANDROID_HOME/platform-tools/adb -s emulator-5554 shell screenrecord /storage/haha.mp4
               #$ANDROID_HOME/platform-tools/adb shell 'input keyevent KEYCODE_DPAD_DOWN;input keyevent KEYCODE_ENTER'
