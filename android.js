@@ -14,6 +14,6 @@ const opts = {
 
 const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
-await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 60))
+await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 30))
 await fs.writeFile('haha.mp4', await client.stopRecordingScreen(), 'base64')
 await client.deleteSession()
