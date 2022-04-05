@@ -55,7 +55,7 @@ jobs:
               $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &       
               $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z `getprop sys.boot_completed` ]]; do sleep 10; done'
               $ANDROID_HOME/platform-tools/adb root
-              for i in {1..10}
+              for i in {1..5}
               do
                   CURRENT_FOCUS=`$ANDROID_HOME/platform-tools/adb shell dumpsys window 2>/dev/null | grep -i mCurrentFocus`
                   echo $CURRENT_FOCUS
