@@ -7,13 +7,12 @@ const opts = {
   port: 4723,
   capabilities: {
     platformName: 'Android',
-    automationName: 'UiAutomator2',
-    app: 'cashmagnetNew.apk'
+    automationName: 'UiAutomator2'
   }
 }
 
 const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
-await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 30))
+await client.installApp('cashmagnetNew.apk')
 await fs.writeFile('haha.mp4', await client.stopRecordingScreen(), 'base64')
 await client.deleteSession()
