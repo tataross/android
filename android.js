@@ -13,11 +13,7 @@ const opts = {
 
 const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
-await client.closeApp()
-await client.closeApp()
-await client.closeApp()
-await client.closeApp()
-await client.closeApp()
+console.log(await client.getCurrentActivity(), await client.getCurrentPackage())
 await client.installApp('cashmagnetNew.apk')
 await fs.writeFile('haha.mp4', await client.stopRecordingScreen(), 'base64')
 await client.deleteSession()
