@@ -58,30 +58,12 @@ jobs:
               
               $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z `getprop sys.boot_completed` ]]; do sleep 10; done'
               $ANDROID_HOME/platform-tools/adb root
-              while [[ $EMU_BOOTED = 0 ]];do
-            echo "Test for current focus"
-            #        $ANDROID_HOME/platform-tools/adb shell dumpsys window
-            CURRENT_FOCUS=`$ANDROID_HOME/platform-tools/adb shell dumpsys window 2>/dev/null | grep -i mCurrentFocus`
-            echo "Current focus: ${CURRENT_FOCUS}"
-            case $CURRENT_FOCUS in
-            *"Launcher"*)
-              if [[ $first_launcher == 1 ]]; then
-                echo "Launcher seems to be ready, wait 10 sec for another popup..."
-                sleep 10
-                first_launcher=0
-              else
-                echo "Launcher is ready, Android boot completed"
-                EMU_BOOTED=1
-                rm /tmp/failed
-              fi
-            ;;
-            *"Not Responding: com.android.systemui"*)
-              echo "Dismiss System UI isn't responding alert"
-              adb shell input keyevent KEYCODE_ENTER
-              adb shell input keyevent KEYCODE_DPAD_DOWN
-              adb shell input keyevent KEYCODE_ENTER
-              first_launcher=1
-            ;;
+              for i in {1..50}
+              do
+                  CURRENT_FOCUS=`$ANDROID_HOME/platform-tools/adb shell dumpsys window 2>/dev/null | grep -i mCurrentFocus`
+                  echo $CURRENT_FOCUS
+                  sleep 10
+              done
               
               #node android.js
               #$ANDROID_HOME/platform-tools/adb -s emulator-5554 shell screenrecord /storage/haha.mp4
