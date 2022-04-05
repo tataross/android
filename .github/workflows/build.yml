@@ -7,18 +7,9 @@ jobs:
         - uses: actions/checkout@main
         - uses: actions/setup-java@main
           with:
-              java-version: 17.x
+              java-version: 11.x
               distribution: zulu
-        - uses: actions/setup-python@main
-          with:
-              python-version: 3.x
         - run: |
-              git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-              export PATH=depot_tools:$PATH
-              which download_from_google_storage
-              git clone https://r8.googlesource.com/r8
-              cd r8
-              tools/gradle.py d8 r8
               keytool -genkey -keystore release.jks -keyalg RSA -keysize 2048 -validity 10000 -storepass 123456 -alias release -dname 'CN=(名字与姓氏), OU=(组织单位名称), O=(组织名称), L=(城市或区域名称), ST=(州或省份名称), C=(单位的两字母国家代码)'
               mkdir res
               $ANDROID_HOME/build-tools/32.0.0/aapt2 compile --dir res -o out.zip
