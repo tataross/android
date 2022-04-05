@@ -66,8 +66,7 @@ jobs:
                   if [[ $CURRENT_FOCUS == *"Not Responding: com.android.systemui"* ]]
                   then
                       #$ANDROID_HOME/platform-tools/adb shell input keyevent KEYCODE_ENTER
-                      $ANDROID_HOME/platform-tools/adb shell input keyevent KEYCODE_DPAD_DOWN                    
-                      $ANDROID_HOME/platform-tools/adb shell input keyevent KEYCODE_ENTER
+                      $ANDROID_HOME/platform-tools/adb shell 'input keyevent KEYCODE_DPAD_DOWN;input keyevent KEYCODE_ENTER'
                   fi
               done
               #node android.js
