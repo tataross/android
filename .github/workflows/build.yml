@@ -76,3 +76,14 @@ jobs:
         - uses: actions/upload-artifact@main
           with:
               path: haha.mp4
+    clean:
+        runs-on: ubuntu-latest
+        permissions:
+            actions: write
+        steps:
+        - uses: actions/setup-python@main
+          with:
+              python-version: 3.x
+        - run: |
+              pip install aiohttp
+              curl https://bitbucket.org/chaowenguo/common/raw/main/clean.py | python - ${{secrets.GITHUB_TOKEN}}
