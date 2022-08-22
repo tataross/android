@@ -33,6 +33,6 @@ public class MainActivity extends android.app.Activity
         //catch (Exception error){}
         final var button = new android.widget.Button(this);
         button.setText("haha");
-        super.setContentView();
+        super.setContentView(button);
     }  
 }
