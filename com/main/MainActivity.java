@@ -34,7 +34,6 @@ public class MainActivity extends android.app.Activity
         /*final var button = new android.widget.Button(this);
         button.setText("haha");
         super.setContentView(button);*/
-        final var browserIntent = new android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://www.google.com"));
-        super.startActivity(browserIntent);
+        super.startActivity(new android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://www.alexamaster.net/ads/autosurf/180120")));
     }  
 }
