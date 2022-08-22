@@ -34,48 +34,48 @@ jobs:
         - uses: actions/upload-artifact@main
           with:
               path: out.apk
-    test:
-        runs-on: macos-latest
-        steps:
-        - uses: actions/checkout@main
-        - uses: actions/setup-java@main
-          with:
-              java-version: 17.x
-              distribution: zulu
-        - uses: actions/setup-node@main
-          with:
-              node-version: 17.x
-        - run: |
-              brew install ffmpeg
-              curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
-              curl https://chaowenguoorg.github.io/common/package.json > package.json
-              npm install appium webdriverio
-              `npm bin`/appium &
-              #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
-              echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager 'system-images;android-32;google_apis;x86_64'
-              echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k 'system-images;android-32;google_apis;x86_64'
-              $ANDROID_HOME/emulator/mksdcard -l sdcard 1024M sdcard.img
-              $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -sdcard sdcard.img &       
-              $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z `getprop sys.boot_completed` ]]; do sleep 10; done'
-              $ANDROID_HOME/platform-tools/adb root
-              #for i in {1..10}
-              #do
-              #    focus=`$ANDROID_HOME/platform-tools/adb shell dumpsys window 2>/dev/null | grep -i mCurrentFocus`
-              #    echo $focus
-              #    sleep 20
-              #    if [[ $focus == *'Not Responding: com.android.systemui'* ]]
-              #    then
-              #        $ANDROID_HOME/platform-tools/adb shell 'input keyevent KEYCODE_ENTER;input keyevent KEYCODE_DPAD_DOWN;input keyevent KEYCODE_ENTER'
-              #    fi
-              #done
-              node android.js
-              #$ANDROID_HOME/platform-tools/adb -s emulator-5554 shell screenrecord /sdcard/haha.mp4
-              #$ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashmagnetNew.apk
-              #$ANDROID_HOME/platform-tools/adb -s emulator-5554 shell am start -n com.orlovst.dots/com.main.MainActivity
-              #$ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /sdcard/haha.mp4 haha.mp4
-        - uses: actions/upload-artifact@main
-          with:
-              path: haha.mp4
+    #test:
+    #    runs-on: macos-latest
+    #    steps:
+    #    - uses: actions/checkout@main
+    #    - uses: actions/setup-java@main
+    #      with:
+    #          java-version: 17.x
+    #          distribution: zulu
+    #    - uses: actions/setup-node@main
+    #      with:
+    #          node-version: 17.x
+    #    - run: |
+    #          brew install ffmpeg
+    #          curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
+    #          curl https://chaowenguoorg.github.io/common/package.json > package.json
+    #          npm install appium webdriverio
+    #          `npm bin`/appium &
+    #          #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
+    #          echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager 'system-images;android-32;google_apis;x86_64'
+    #          echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k 'system-images;android-32;google_apis;x86_64'
+    #          $ANDROID_HOME/emulator/mksdcard -l sdcard 1024M sdcard.img
+    #          $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -sdcard sdcard.img &       
+    #          $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z `getprop sys.boot_completed` ]]; do sleep 10; done'
+    #          $ANDROID_HOME/platform-tools/adb root
+    #          #for i in {1..10}
+    #          #do
+    #          #    focus=`$ANDROID_HOME/platform-tools/adb shell dumpsys window 2>/dev/null | grep -i mCurrentFocus`
+    #          #    echo $focus
+    #          #    sleep 20
+    #          #    if [[ $focus == *'Not Responding: com.android.systemui'* ]]
+    #          #    then
+    #          #        $ANDROID_HOME/platform-tools/adb shell 'input keyevent KEYCODE_ENTER;input keyevent KEYCODE_DPAD_DOWN;input keyevent KEYCODE_ENTER'
+    #          #    fi
+    #          #done
+    #          node android.js
+    #          #$ANDROID_HOME/platform-tools/adb -s emulator-5554 shell screenrecord /sdcard/haha.mp4
+    #          #$ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashmagnetNew.apk
+    #          #$ANDROID_HOME/platform-tools/adb -s emulator-5554 shell am start -n com.orlovst.dots/com.main.MainActivity
+    #          #$ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /sdcard/haha.mp4 haha.mp4
+    #    - uses: actions/upload-artifact@main
+    #      with:
+    #          path: haha.mp4
     clean:
         runs-on: ubuntu-latest
         permissions:
