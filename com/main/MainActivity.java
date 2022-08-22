@@ -4,7 +4,7 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends android.app.Activity   
 {
-    private android.view.View parse(final org.jsoup.nodes.Element element)
+    /*private android.view.View parse(final org.jsoup.nodes.Element element)
     {
         if (element.childrenSize() == 0)
         {
@@ -20,16 +20,19 @@ public class MainActivity extends android.app.Activity
             for (final var $: element.children()) body.addView(this.parse($));
             return body;
         }
-    }
+    }*/
     @Override  
     public void onCreate(final android.os.Bundle savedInstanceState)   
     {
         super.onCreate(savedInstanceState);  
-        try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(super.getAssets().open("index.html"), java.nio.charset.StandardCharsets.UTF_8)))
+        /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(super.getAssets().open("index.html"), java.nio.charset.StandardCharsets.UTF_8)))
         {
             final var document = org.jsoup.Jsoup.parse(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
             super.setContentView(this.parse(document.body()));
-        }
-        catch (Exception error){} 
+        }*/
+        //catch (Exception error){}
+        final var button = new android.widget.Button(this);
+        button.setText("haha");
+        super.setContentView();
     }  
 }
