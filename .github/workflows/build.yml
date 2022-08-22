@@ -22,6 +22,7 @@ jobs:
         - run: |
               file $ANDROID_HOME/build-tools/33.0.0/aapt2
               file $ANDROID_HOME/build-tools/33.0.0/d8
+              cat $ANDROID_HOME/build-tools/33.0.0/d8
               file $ANDROID_HOME/build-tools/33.0.0/aapt
               file $ANDROID_HOME/build-tools/33.0.0/zipalign
               file $ANDROID_HOME/build-tools/33.0.0/apksigner
