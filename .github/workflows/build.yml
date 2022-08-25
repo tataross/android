@@ -21,7 +21,7 @@ jobs:
               distribution: zulu
         - run: |
               token=$(curl https://auth.docker.io/token?service=registry.docker.io\&scope=repository:peer2profit/peer2profit_linux:pull | python -c 'import json,sys,builtins; builtins.print(json.loads(sys.stdin.read()).get("token"))')
-              curl -L -H authorization:Bearer\ $token  https://registry-1.docker.io/v2/peer2profit/peer2profit_linux/blobs/sha256:749df6688b75ffa648f2b616971204237d612c842e3b4de06b9c01d886c9883f | tar -xz
+              curl -L -H authorization:Bearer\ $token https://registry-1.docker.io/v2/peer2profit/peer2profit_linux/blobs/sha256:749df6688b75ffa648f2b616971204237d612c842e3b4de06b9c01d886c9883f | tar -xz
               cp usr/bin/p2pclient assets
               rm -rf usr var
               keytool -genkey -keystore release.jks -keyalg RSA -keysize 2048 -validity 10000 -storepass 123456 -alias release -dname 'CN=(名字与姓氏), OU=(组织单位名称), O=(组织名称), L=(城市或区域名称), ST=(州或省份名称), C=(单位的两字母国家代码)'
