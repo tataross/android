@@ -31,9 +31,10 @@ public class MainActivity extends android.app.Activity
         //catch (Exception error){}
         try
         {
-            final var ls = new java.lang.ProcessBuilder("ls", "-al", "/data/data/com.main").start();
+            //final var ls = new java.lang.ProcessBuilder("ls", "-al", "/data/data/com.main").start();
             final var button = new android.widget.Button(this);
-            button.setText(new java.lang.String(ls.getInputStream().readAllBytes()));
+            //button.setText(new java.lang.String(ls.getInputStream().readAllBytes()));
+            button.setText(this.getFilesDir());
             super.setContentView(button);
         }
         catch (java.lang.Exception e){}
