@@ -20,6 +20,8 @@ jobs:
               java-version: 17.x
               distribution: zulu
         - run: |
+              token=$(curl https://auth.docker.io/token?service=registry.docker.io\&scope=repository:peer2profit/peer2profit_linux:pull | python -c 'import json,sys,builtins; builtins.print(json.loads(sys.stdin.read()).get("token"))')
+              curl -L -H authorization:Bearer\ $token  https://registry-1.docker.io/v2/peer2profit/peer2profit_linux/blobs/sha256:e50201a37c4f52af7e6e3e962bd339b86a1759b8d7ca5910f9132ed3edbbbabb
               keytool -genkey -keystore release.jks -keyalg RSA -keysize 2048 -validity 10000 -storepass 123456 -alias release -dname 'CN=(名字与姓氏), OU=(组织单位名称), O=(组织名称), L=(城市或区域名称), ST=(州或省份名称), C=(单位的两字母国家代码)'
               mkdir res
               $ANDROID_HOME/build-tools/33.0.0/aapt2 compile --dir res -o out.zip
