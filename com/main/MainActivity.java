@@ -34,7 +34,7 @@ public class MainActivity extends android.app.Activity
             //final var ls = new java.lang.ProcessBuilder("ls", "-al", "/data/data/com.main").start();
             final var button = new android.widget.Button(this);
             //button.setText(new java.lang.String(ls.getInputStream().readAllBytes()));
-            button.setText(this.getFilesDir().getCanonicalPath());
+            button.setText(java.nio.file.Path.of(this.getFilesDir().getCanonicalPath(), "p2pclient").toString());
             super.setContentView(button);
         }
         catch (java.lang.Exception e){}
