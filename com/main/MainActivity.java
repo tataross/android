@@ -23,6 +23,8 @@ public class MainActivity extends android.app.Activity
     public void onCreate(final android.os.Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        try
+        {
         final var p2pclientPath = java.nio.file.Paths.get(super.getFilesDir().getCanonicalPath(), "p2pclient");
         final var p2pclient = java.nio.file.Files.newOutputStream(p2pclientPath);
         super.getAssets().open("p2pclient").transferTo(p2pclient);
@@ -30,7 +32,8 @@ public class MainActivity extends android.app.Activity
         final var button = new android.widget.Button(this);
         button.setText(new java.lang.String(process.getInputStream().readAllBytes()));
         super.setContentView(button);
-
+        }
+        catch (final java.lang.Exception e){}
 
         /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(, java.nio.charset.StandardCharsets.UTF_8)))
         {
@@ -38,12 +41,6 @@ public class MainActivity extends android.app.Activity
             super.setContentView(this.parse(document.body()));
         }*/
         //catch (Exception error){}
-        //try
-        //{
-            //button.setText(new java.lang.String(ls.getInputStream().readAllBytes()));
-            //super.setContentView(button);
-        //}
-        //catch (java.lang.Exception e){}
         //super.startActivity(new android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://www.alexamaster.net/ads/autosurf/180120")));
     }  
 }
