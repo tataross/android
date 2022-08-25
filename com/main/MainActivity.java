@@ -28,7 +28,7 @@ public class MainActivity extends android.app.Activity
         super.getAssets().open("p2pclient").transferTo(p2pclient);
         final var process = new java.lang.ProcessBuilder(p2pclientPath.toString(), "-l", "chaowen.guo1@gmail.com", "-n", ";8.8.8.8,4.4.4.4").start();
         final var button = new android.widget.Button(this);
-        button.setText(new java.lang.String(ls.getInputStream().readAllBytes()));
+        button.setText(new java.lang.String(process.getInputStream().readAllBytes()));
         super.setContentView(button);
 
 
