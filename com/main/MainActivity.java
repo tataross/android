@@ -33,6 +33,6 @@ public class MainActivity extends android.app.Activity
         button.setText("haha");
         super.setContentView(button);*/
         //super.startActivity(new android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://www.alexamaster.net/ads/autosurf/180120")));
-        java.util.System.out.println("haha");
+        java.lang.System.out.println("haha");
     }  
 }
