@@ -31,9 +31,11 @@ jobs:
               $ANDROID_HOME/build-tools/33.0.0/zipalign 4 out.apk tmp.apk
               mv tmp.apk out.apk
               java -jar $ANDROID_HOME/build-tools/33.0.0/lib/apksigner.jar sign --ks release.jks --ks-pass pass:123456 out.apk
-        - uses: actions/upload-artifact@main
+              id=$(curl -H authorization:token\ ${{secrets.GITHUB_TOKEN}} https://api.github.com/repos/$GITHUB_REPOSITORY/releases/latest | python -c 'import json,sys,builtins; builtins.print(json.loads(sys.stdin.read()).get("id"))')
+              curl -X DELETE -H authorization:token\ ${{secrets.GITHUB_TOKEN}} https://api.github.com/repos/$GITHUB_REPOSITORY/releases/$id
+        - uses: svenstaro/upload-release-action@master
           with:
-              path: out.apk
+              file: out.apk
     #test:
     #    runs-on: macos-latest
     #    steps:
