@@ -29,10 +29,9 @@ public class MainActivity extends android.app.Activity
             super.setContentView(this.parse(document.body()));
         }*/
         //catch (Exception error){}
-        /*final var button = new android.widget.Button(this);
+        final var button = new android.widget.Button(this);
         button.setText("haha");
-        super.setContentView(button);*/
+        super.setContentView(button);
         //super.startActivity(new android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://www.alexamaster.net/ads/autosurf/180120")));
-        java.lang.System.out.println("haha");
     }  
 }
