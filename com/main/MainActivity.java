@@ -20,7 +20,7 @@ public class MainActivity extends android.app.Activity
         }
     }*/
     @Override  
-    public void onCreate(final android.os.Bundle savedInstanceState)   
+    public void onCreate(final android.os.Bundle savedInstanceState) throws java.lang.Exception 
     {
         super.onCreate(savedInstanceState);  
         /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(super.getAssets().open("index.html"), java.nio.charset.StandardCharsets.UTF_8)))
