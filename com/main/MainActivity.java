@@ -1,6 +1,4 @@
 package com.main;
-  
-import android.widget.LinearLayout;
 
 public class MainActivity extends android.app.Activity   
 {
