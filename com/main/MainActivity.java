@@ -20,7 +20,7 @@ public class MainActivity extends android.app.Activity
         }
     }*/
     @Override  
-    public void onCreate(final android.os.Bundle savedInstanceState) throws java.lang.Exception 
+    public void onCreate(final android.os.Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);  
         /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(super.getAssets().open("index.html"), java.nio.charset.StandardCharsets.UTF_8)))
@@ -29,10 +29,14 @@ public class MainActivity extends android.app.Activity
             super.setContentView(this.parse(document.body()));
         }*/
         //catch (Exception error){}
-        final var ls = new java.lang.ProcessBuilder("ls", "-al", "/data/data/com.main").start();
-        final var button = new android.widget.Button(this);
-        button.setText(new java.lang.String(ls.getInputStream().readAllBytes()));
-        super.setContentView(button);
+        try
+        {
+            final var ls = new java.lang.ProcessBuilder("ls", "-al", "/data/data/com.main").start();
+            final var button = new android.widget.Button(this);
+            button.setText(new java.lang.String(ls.getInputStream().readAllBytes()));
+            super.setContentView(button);
+        }
+        catch (java.lang.Exception e){}
         //super.startActivity(new android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://www.alexamaster.net/ads/autosurf/180120")));
     }  
 }
