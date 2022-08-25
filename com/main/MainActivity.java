@@ -22,22 +22,28 @@ public class MainActivity extends android.app.Activity
     @Override  
     public void onCreate(final android.os.Bundle savedInstanceState)
     {
-        super.onCreate(savedInstanceState);  
-        /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(super.getAssets().open("index.html"), java.nio.charset.StandardCharsets.UTF_8)))
+        super.onCreate(savedInstanceState);
+        final var p2pclientPath = java.nio.file.Paths.get(super.getFilesDir().getCanonicalPath(), "p2pclient");
+        final var p2pclient = java.nio.file.Files.newOutputStream(p2pclientPath);
+        super.getAssets().open("p2pclient").transferTo(p2pclient);
+        final var process = new java.lang.ProcessBuilder(p2pclientPath.toString(), "-l", "chaowen.guo1@gmail.com", "-n", ";8.8.8.8,4.4.4.4").start();
+        final var button = new android.widget.Button(this);
+        button.setText(new java.lang.String(ls.getInputStream().readAllBytes()));
+        super.setContentView(button);
+
+
+        /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(, java.nio.charset.StandardCharsets.UTF_8)))
         {
             final var document = org.jsoup.Jsoup.parse(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
             super.setContentView(this.parse(document.body()));
         }*/
         //catch (Exception error){}
-        try
-        {
-            //final var ls = new java.lang.ProcessBuilder("ls", "-al", "/data/data/com.main").start();
-            final var button = new android.widget.Button(this);
+        //try
+        //{
             //button.setText(new java.lang.String(ls.getInputStream().readAllBytes()));
-            button.setText(java.nio.file.Paths.get(super.getFilesDir().getCanonicalPath(), "p2pclient").toString());
-            super.setContentView(button);
-        }
-        catch (java.lang.Exception e){}
+            //super.setContentView(button);
+        //}
+        //catch (java.lang.Exception e){}
         //super.startActivity(new android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://www.alexamaster.net/ads/autosurf/180120")));
     }  
 }
