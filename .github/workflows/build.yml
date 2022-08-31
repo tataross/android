@@ -49,12 +49,10 @@ jobs:
               node-version: 18.x
         - run: |
               #brew install ffmpeg
-              npm list -g
               curl https://bitbucket.org/chaowenguo/common/raw/main/package.json > package.json
-              npm install -g appium
-              #npm audit fix --force
-              which appium
-    #          `npm bin`/appium &
+              npm install -g appium webdriverio #npm list -g
+              appium &
+              node android.js
     #          #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
     #          echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager 'system-images;android-32;google_apis;x86_64'
     #          echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k 'system-images;android-32;google_apis;x86_64'
@@ -72,7 +70,6 @@ jobs:
     #          #        $ANDROID_HOME/platform-tools/adb shell 'input keyevent KEYCODE_ENTER;input keyevent KEYCODE_DPAD_DOWN;input keyevent KEYCODE_ENTER'
     #          #    fi
     #          #done
-    #          node android.js
     #          #$ANDROID_HOME/platform-tools/adb -s emulator-5554 shell screenrecord /sdcard/haha.mp4
     #          #$ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashmagnetNew.apk
     #          #$ANDROID_HOME/platform-tools/adb -s emulator-5554 shell am start -n com.orlovst.dots/com.main.MainActivity
