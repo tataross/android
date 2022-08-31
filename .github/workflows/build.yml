@@ -40,20 +40,15 @@ jobs:
         - uses: svenstaro/upload-release-action@master
           with:
               file: out.apk
-    #test:
-    #    runs-on: macos-latest
-    #    steps:
-    #    - uses: actions/checkout@main
-    #    - uses: actions/setup-java@main
-    #      with:
-    #          java-version: 17.x
-    #          distribution: zulu
-    #    - uses: actions/setup-node@main
-    #      with:
-    #          node-version: 17.x
-    #    - run: |
-    #          brew install ffmpeg
-    #          curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
+    test:
+        runs-on: macos-latest
+        steps:
+        - uses: actions/checkout@main
+        - uses: actions/setup-node@main
+          with:
+              node-version: 18.x
+        - run: |
+              brew install ffmpeg
     #          curl https://chaowenguoorg.github.io/common/package.json > package.json
     #          npm install appium webdriverio
     #          `npm bin`/appium &
