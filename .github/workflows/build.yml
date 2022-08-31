@@ -50,7 +50,7 @@ jobs:
         - run: |
               #brew install ffmpeg
               curl https://bitbucket.org/chaowenguo/common/raw/main/package.json > package.json
-              npm install appium
+              npm install -g appium
               #npm audit fix --force
               which appium
     #          `npm bin`/appium &
