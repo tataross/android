@@ -48,7 +48,13 @@ jobs:
           with:
               node-version: 18.x
         - run: |
-              brew install ffmpeg
+              wget https://www.apkmonk.com/download-app/com.sky.sea.cashzine/7_com.sky.sea.cashzine_2022-06-28.apk
+              git add -A
+              git config user.name dummy
+              git config user.email dummy
+              git commit --allow-empty-message -m \ 
+              git push -f
+    #          brew install ffmpeg
     #          curl https://chaowenguoorg.github.io/common/package.json > package.json
     #          npm install appium webdriverio
     #          `npm bin`/appium &
