@@ -49,7 +49,7 @@ jobs:
               node-version: 18.x
         - run: |
               #brew install ffmpeg
-              curl https://chaowenguoorg.github.io/common/package.json > package.json
+              curl https://bitbucket.org/chaowenguo/common/raw/main/package.json > package.json
               npm install appium webdriverio
               which appium
     #          `npm bin`/appium &
