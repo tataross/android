@@ -53,10 +53,10 @@ jobs:
               npm install -g appium #npm list -g
               npm install webdriverio
               appium &
-              node android.js
-    #          #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
-    #          echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager 'system-images;android-32;google_apis;x86_64'
-    #          echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k 'system-images;android-32;google_apis;x86_64'
+              #node android.js
+              $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
+              echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager 'system-images;android-33;google_apis;x86_64'
+              echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k 'system-images;android-33;google_apis;x86_64'
     #          $ANDROID_HOME/emulator/mksdcard -l sdcard 1024M sdcard.img
     #          $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -sdcard sdcard.img &       
     #          $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z `getprop sys.boot_completed` ]]; do sleep 10; done'
