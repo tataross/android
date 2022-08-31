@@ -41,7 +41,7 @@ jobs:
           with:
               file: out.apk
     test:
-        runs-on: macos-latest
+        runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@main
         - uses: actions/setup-node@main
