@@ -50,7 +50,7 @@ jobs:
         - run: |
               #brew install ffmpeg
               curl https://bitbucket.org/chaowenguo/common/raw/main/package.json > package.json
-              npm install appium webdriverio
+              npm install webdriverio appium
               which appium
     #          `npm bin`/appium &
     #          #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
