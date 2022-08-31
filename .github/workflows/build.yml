@@ -60,16 +60,16 @@ jobs:
               $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -sdcard sdcard.img &       
               $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z `getprop sys.boot_completed` ]]; do sleep 10; done'
               $ANDROID_HOME/platform-tools/adb root
-              #for i in {1..10}
-              #do
-              #    focus=`$ANDROID_HOME/platform-tools/adb shell dumpsys window 2>/dev/null | grep -i mCurrentFocus`
-              #    echo $focus
-              #    sleep 20
-              #    if [[ $focus == *'Not Responding: com.android.systemui'* ]]
-              #    then
-              #        $ANDROID_HOME/platform-tools/adb shell 'input keyevent KEYCODE_ENTER;input keyevent KEYCODE_DPAD_DOWN;input keyevent KEYCODE_ENTER'
-              #    fi
-              #done
+              for i in {1..10}
+              do
+                  focus=`$ANDROID_HOME/platform-tools/adb shell dumpsys window 2>/dev/null | grep -i mCurrentFocus`
+                  echo $focus
+                  sleep 20
+                  if [[ $focus == *'Not Responding: com.android.systemui'* ]]
+                  then
+                      $ANDROID_HOME/platform-tools/adb shell 'input keyevent KEYCODE_ENTER;input keyevent KEYCODE_DPAD_DOWN;input keyevent KEYCODE_ENTER'
+                  fi
+              done
               node android.js
               #$ANDROID_HOME/platform-tools/adb -s emulator-5554 shell screenrecord /sdcard/haha.mp4
               #$ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashmagnetNew.apk
