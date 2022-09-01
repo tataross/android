@@ -11,17 +11,14 @@ const opts = {
     app: path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
     uiautomator2ServerInstallTimeout: 80000,
     androidInstallTimeout: 180000,
-    connectionRetryTimeout: 360000,
-    adbExecTimeout: 80000
+    connectionRetryTimeout: 480000,
+    adbExecTimeout: 120000
   }
 }
 
 const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
-for (const _ of globalThis.Array(20).keys())
-{
-    console.log(await client.getCurrentActivity(), await client.getCurrentPackage())
-    await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 10))
-}
+const tvLabel = await client.$('id=com.sky.sea.cashzine:id/tv_label')
+await tvLabel.click()
 await fs.writeFile('haha.mp4', await client.stopRecordingScreen(), 'base64')
 await client.deleteSession()
