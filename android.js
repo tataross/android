@@ -9,7 +9,8 @@ const opts = {
   capabilities: {
     platformName: 'Android',
     app: path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
-    uiautomator2ServerInstallTimeout: 90000
+    uiautomator2ServerInstallTimeout: 90000,
+    androidInstallTimeout: 180000
   }
 }
 
