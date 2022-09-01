@@ -41,20 +41,9 @@ jobs:
         - uses: svenstaro/upload-release-action@master
           with:
               file: out.apk
-    change:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@main
-        - run: |
-              mv *.apk cashzine.apk
-              git add -A
-              git config user.email dummy
-              git config user.name dummy
-              git commit --allow-empty-message -m ''
-              git -c core.sshCommand='ssh -i ../key' push
     test:
         runs-on: macos-latest
-        if: github.event_name == 'dummy'
+        if: github.event_name == 'push'
         steps:
         - uses: actions/checkout@main
         - uses: actions/setup-node@main
@@ -62,7 +51,7 @@ jobs:
               node-version: 18.x
         - run: |
               brew install ffmpeg
-              curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
+              #curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
               curl https://bitbucket.org/chaowenguo/common/raw/main/package.json > package.json
               npm install -g appium 
               npm install webdriverio
