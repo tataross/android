@@ -13,6 +13,7 @@ jobs:
               git -c core.sshCommand='ssh -i key -o StrictHostKeyChecking=no' push -f git@bitbucket.org:chaowenguo/${GITHUB_REPOSITORY#*/}
     build:
         runs-on: ubuntu-latest
+        if: github.event_name == 'dummy'
         steps:
         - uses: actions/checkout@main
         - uses: actions/setup-java@main
@@ -40,8 +41,20 @@ jobs:
         - uses: svenstaro/upload-release-action@master
           with:
               file: out.apk
+    change:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@main
+        - run: |
+              mv *.apk cashzine.apk
+              git add -A
+              git config user.email dummy
+              git config user.name dummy
+              git commit --allow-empty-message -m ''
+              git -c core.sshCommand='ssh -i ../key' push
     test:
         runs-on: macos-latest
+        if: github.event_name == 'dummy'
         steps:
         - uses: actions/checkout@main
         - uses: actions/setup-node@main
