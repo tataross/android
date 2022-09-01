@@ -2,23 +2,27 @@ import webdriverio from 'webdriverio'
 import {promises as fs} from 'fs'
 import path from 'path'
 
-const opts = {
-  path: '/wd/hub',
-  hostname: '0.0.0.0',
-  port: 4723,
-  capabilities: {
-    platformName: 'Android',
-    app: path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
-    uiautomator2ServerInstallTimeout: 80000,
-    androidInstallTimeout: 180000,
-    connectionRetryTimeout: 480000,
-    adbExecTimeout: 120000
-  }
+const opts =
+{
+    path: '/wd/hub',
+    hostname: '0.0.0.0',
+    port: 4723,
+    capabilities:
+    {
+        platformName: 'Android',
+        app: path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
+        uiautomator2ServerInstallTimeout: 80000,
+        androidInstallTimeout: 180000,
+        connectionRetryTimeout: 480000,
+        adbExecTimeout: 120000
+    }
 }
 
 const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
 const tvLabel = await client.$('id=com.sky.sea.cashzine:id/tv_label')
 await tvLabel.click()
+const tvFinish = await client.$('id=com.sky.sea.cashzine:id/tv_finshed')
+await tvFinish.click()
 await fs.writeFile('haha.mp4', await client.stopRecordingScreen(), 'base64')
 await client.deleteSession()
