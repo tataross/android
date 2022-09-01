@@ -51,11 +51,12 @@ jobs:
               brew install ffmpeg
               curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
               curl https://bitbucket.org/chaowenguo/common/raw/main/package.json > package.json
-              npm install -g appium webdriverio
+              npm install -g appium 
+              npm install webdriverio
               appium &
-        - uses: reactivecircus/android-emulator-runner@v2
+        - uses: reactivecircus/android-emulator-runner@main
           with:
-              api-level: 29
+              api-level: 33
               script: node android.js
               
               
