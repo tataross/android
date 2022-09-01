@@ -13,7 +13,7 @@ const opts = {
 
 const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
-for (const _ of globalThis.Array(10).keys())
+for (const _ of globalThis.Array(20).keys())
 {
     
     console.log(await client.getCurrentActivity(), await client.getCurrentPackage())
