@@ -7,6 +7,7 @@ const opts = {
   port: 4723,
   capabilities: {
     platformName: 'Android',
+    app: '/path/to/the/downloaded/cashzine.apk',
     automationName: 'UiAutomator2'
   }
 }
@@ -15,7 +16,6 @@ const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
 for (const _ of globalThis.Array(20).keys())
 {
-    
     console.log(await client.getCurrentActivity(), await client.getCurrentPackage())
     await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 10))
 }
