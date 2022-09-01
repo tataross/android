@@ -59,7 +59,8 @@ jobs:
               appium &
         - uses: reactivecircus/android-emulator-runner@v2
           with:
-              api-level: 30
+              api-level: 31
+              target: google_apis
               arch: x86_64
               script: node android.js
               
