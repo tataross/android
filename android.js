@@ -20,7 +20,7 @@ const opts =
 
 const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
-const tvLabel = await client.$('id=com.sky.sea.cashzine:id/tv_label')
+const tvLabel = await client.$$('id=com.sky.sea.cashzine:id/tv_label').at(0)
 await tvLabel.click()
 const tvFinish = await client.$('id=com.sky.sea.cashzine:id/tv_finshed')
 await tvFinish.click()
