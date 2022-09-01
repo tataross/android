@@ -57,7 +57,7 @@ jobs:
         - uses: reactivecircus/android-emulator-runner@v2
           with:
               api-level: 33
-              script: node android.js
+              script: echo haha
               
               
               #npm install appium webdriverio
