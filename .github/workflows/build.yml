@@ -55,6 +55,7 @@ jobs:
               curl https://bitbucket.org/chaowenguo/common/raw/main/package.json > package.json
               npm install -g appium 
               npm install webdriverio
+              ls -al
               appium &
         - uses: reactivecircus/android-emulator-runner@v2
           with:
