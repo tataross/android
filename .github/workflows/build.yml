@@ -52,6 +52,7 @@ jobs:
               curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
               curl https://bitbucket.org/chaowenguo/common/raw/main/package.json > package.json
               npm install -g appium webdriverio
+              appium &
         - uses: reactivecircus/android-emulator-runner@v2
           with:
               api-level: 29
