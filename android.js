@@ -30,5 +30,7 @@ const permissionAllowButton = await client.$('id=com.android.permissioncontrolle
 await permissionAllowButton.click()
 const ivHomeHome = await client.$('id=com.sky.sea.cashzine:id/iv_home_home')
 await ivHomeHome.click()
+const tvLoginNow = await client.$('com.sky.sea.cashzine:id/tv_login_now')
+await tvLoginNow.click()
 await fs.writeFile('haha.mp4', await client.stopRecordingScreen(), 'base64')
 await client.deleteSession()
