@@ -13,7 +13,7 @@ const opts =
         app: path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
         uiautomator2ServerInstallTimeout: 80000,
         androidInstallTimeout: 180000,
-        connectionRetryTimeout: 600000,
+        //connectionRetryTimeout: 600000,
         adbExecTimeout: 120000
     }
 }
