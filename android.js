@@ -13,7 +13,7 @@ const opts =
         app: path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
         uiautomator2ServerInstallTimeout: 80000,
         androidInstallTimeout: 180000,
-        connectionRetryTimeout: 480000,
+        connectionRetryTimeout: 600000,
         adbExecTimeout: 120000
     }
 }
@@ -22,7 +22,7 @@ const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
 const tvLabel = await client.$$('id=com.sky.sea.cashzine:id/tv_label').at(0)
 await tvLabel.click()
-const tvFinish = await client.$('id=com.sky.sea.cashzine:id/tv_finshed')
+/*const tvFinish = await client.$('id=com.sky.sea.cashzine:id/tv_finshed')
 await tvFinish.click()
 const llAgree = await client.$('id=com.sky.sea.cashzine:id/ll_agree')
 await llAgree.click()
@@ -36,7 +36,7 @@ const tvGoToEmailLogin = await client.$('id=com.sky.sea.cashzine:id/tv_go_to_ema
 await tvGoToEmailLogin.click()
 const etPhoneEmail = await client.$('id=com.sky.sea.cashzine:id/et_phone_email')
 await etPhoneEmail.setValue('chaowen.guo1@gmail.com')
-const etPassword = await client.$('id=com.sky.sea.cashzine:id/et_password')
+const etPassword = await client.$('id=com.sky.sea.cashzine:id/et_password')*/
 
 await fs.writeFile('haha.mp4', await client.stopRecordingScreen(), 'base64')
 await client.deleteSession()
