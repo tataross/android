@@ -38,5 +38,7 @@ const etPhoneEmail = await client.$('id=com.sky.sea.cashzine:id/et_phone_email')
 await etPhoneEmail.setValue('chaowen.guo1@gmail.com')
 const etPassword = await client.$('id=com.sky.sea.cashzine:id/et_password')*/
 await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 10))
+const tvLabel = await client.$$('id=com.sky.sea.cashzine:id/tv_label').at(0)
+await tvLabel.click()
 await fs.writeFile('haha.mp4', await client.stopRecordingScreen(), 'base64')
 await client.deleteSession()
