@@ -62,7 +62,7 @@ jobs:
               api-level: 30
               target: google_apis
               arch: x86_64
-              script: node android.js
+              script: node android.js ${{secrets.PASSWORD}}
               
               
               #npm install appium webdriverio
