@@ -15,7 +15,7 @@ const opts =
         uiautomator2ServerInstallTimeout: 90000,
         androidInstallTimeout: 180000,
         //connectionRetryTimeout: 600000,
-        adbExecTimeout: 80000
+        adbExecTimeout: 100000
     }
 }
 
