@@ -39,5 +39,6 @@ await client.$('id=com.sky.sea.cashzine:id/et_password').setValue(process.argv.a
 await client.$('id=com.sky.sea.cashzine:id/tv_login').click()
 await client.$('id=com.sky.sea.cashzine:id/ll_home_work').click()
 await client.$('id=com.sky.sea.cashzine:id/iv_article_icon_big').click()
+await client.touchScroll(10, 100)
 await fs.writeFile('haha.mp4', await client.stopRecordingScreen(), 'base64')
 await client.deleteSession()
