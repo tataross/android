@@ -38,7 +38,9 @@ await client.$('id=com.sky.sea.cashzine:id/et_phone_email').setValue('chaowen.gu
 await client.$('id=com.sky.sea.cashzine:id/et_password').setValue(process.argv.at(2))
 await client.$('id=com.sky.sea.cashzine:id/tv_login').click()
 await client.$('id=com.sky.sea.cashzine:id/ll_home_work').click()
-await client.$('id=com.sky.sea.cashzine:id/iv_article_icon_big').click()
-await client.touchScroll(10, 100)
+await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 30))
+
+//await client.$('id=com.sky.sea.cashzine:id/iv_article_icon_big').click()
+
 await fs.writeFile('haha.mp4', await client.stopRecordingScreen(), 'base64')
 await client.deleteSession()
