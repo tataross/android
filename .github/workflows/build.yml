@@ -50,7 +50,7 @@ jobs:
           with:
               node-version: 18.x
         - run: |
-              ls -al $ANDROID_HOME
+              ls -al $ANDROID_HOME/platform-tools-2
               ls -al $ANDROID_HOME/platform-tools
               brew install ffmpeg
               #curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
