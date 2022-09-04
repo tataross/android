@@ -34,6 +34,7 @@ await client.$('id=com.sky.sea.cashzine:id/et_phone_email').setValue('chaowen.gu
 await client.$('id=com.sky.sea.cashzine:id/et_password').setValue(process.argv.at(2))
 await client.$('id=com.sky.sea.cashzine:id/tv_login').click()
 await client.$('id=com.sky.sea.cashzine:id/iv_home_work').click()
+console.log(await client.getPageSource())
 await client.$('id=com.sky.sea.cashzine:id/iv_article_icon_big').click()
 console.log(await client.getContexts())
 await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 30))
