@@ -41,9 +41,8 @@ await client.$('id=com.sky.sea.cashzine:id/iv_home_work').click()
 await client.$('id=com.sky.sea.cashzine:id/iv_article_icon_big').click()
 console.log(await client.getContexts())
 await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 30))
-console.log(await client.getWindowRect())
-
-await client.touchScroll(10, 100)
+const {width, height} = await client.getWindowRect()
+await client.touchScroll(0, height)
 
 await fs.writeFile('haha.mp4', await client.stopRecordingScreen(), 'base64')
 await client.deleteSession()
