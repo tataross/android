@@ -8,6 +8,7 @@ const opts =
     path: '/wd/hub',
     hostname: '0.0.0.0',
     port: 4723,
+    connectionRetryCount: 6,
     connectionRetryTimeout: 2000000,
     capabilities:
     {
