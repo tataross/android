@@ -67,7 +67,6 @@ jobs:
               done
               $ANDROID_HOME/platform-tools/adb shell input keyevent 82
               $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r'
-              #$ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sl
               node android.js ${{secrets.PASSWORD}}
               
               
