@@ -57,8 +57,9 @@ jobs:
               npm install webdriverio
               #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
               appium & 
-              echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64
+              echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
+              $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager emulator --channel=0
               $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &
               $ANDROID_HOME/platform-tools/adb wait-for-device
               while [[ $($ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r') != 1 ]]
