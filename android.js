@@ -8,7 +8,6 @@ const opts =
     path: '/wd/hub',
     hostname: '0.0.0.0',
     port: 4723,
-    connectionRetryCount: 6,
     connectionRetryTimeout: 2000000,
     capabilities:
     {
@@ -16,15 +15,16 @@ const opts =
         'appium:automationName':'UiAutomator2',
         'appium:app':path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
         'appium:uiautomator2ServerInstallTimeout':200000,
-        'appium:androidInstallTimeou':300000,
-        'appium:adbExecTimeout':300000
+        'appium:androidInstallTimeou':400000,
+        'appium:adbExecTimeout':400000
     }
 }
 
 const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
 await client.setImplicitTimeout(1000)
-await client.$$('id=com.sky.sea.cashzine:id/tv_label').at(0).click()
+const tvLabel = await client.$$('id=com.sky.sea.cashzine:id/tv_label').at(0)
+await tvLabel.click()
 await client.$('id=com.sky.sea.cashzine:id/tv_finshed').click()
 await client.$('id=com.sky.sea.cashzine:id/ll_agree').click()
 await client.$('id=com.android.permissioncontroller:id/permission_allow_button').click()
