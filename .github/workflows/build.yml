@@ -59,42 +59,14 @@ jobs:
               appium & 
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
-              $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager emulator --channel=0
               $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &
               $ANDROID_HOME/platform-tools/adb wait-for-device
               while [[ $($ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r') != 1 ]]
               do
                   sleep 10
               done
-              $ANDROID_HOME/platform-tools/adb shell input keyevent 82
-              $ANDROID_HOME/platform-tools/adb shell settings put global window_animation_scale 0.0
-              $ANDROID_HOME/platform-tools/adb shell settings put global transition_animation_scale 0.0
-              $ANDROID_HOME/platform-tools/adb shell settings put global animator_duration_scale 0.0
               $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r'
-              node android.js ${{secrets.PASSWORD}}
-              
-              
-              #echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager 'system-images;android-33;google_apis;x86_64'
-              #echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k 'system-images;android-33;google_apis;x86_64'
-              #$ANDROID_HOME/emulator/mksdcard -l sdcard 1024M sdcard.img
-              #$ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -sdcard sdcard.img &       
-              #$ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z `getprop sys.boot_completed` ]]; do sleep 10; done'
-              #$ANDROID_HOME/platform-tools/adb root
-              #for i in {1..10}
-              #do
-              #    focus=`$ANDROID_HOME/platform-tools/adb shell dumpsys window 2>/dev/null | grep -i mCurrentFocus`
-              #    echo $focus
-              #    sleep 20
-              #    if [[ $focus == *'Not Responding: com.android.systemui'* ]]
-              #    then
-              #        $ANDROID_HOME/platform-tools/adb shell 'input keyevent KEYCODE_ENTER;input keyevent KEYCODE_DPAD_DOWN;input keyevent KEYCODE_ENTER'
-              #    fi
-              #done
-              #node android.js
-              #$ANDROID_HOME/platform-tools/adb -s emulator-5554 shell screenrecord /sdcard/haha.mp4
-              #$ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashmagnetNew.apk
-              #$ANDROID_HOME/platform-tools/adb -s emulator-5554 shell am start -n com.orlovst.dots/com.main.MainActivity
-              #$ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /sdcard/haha.mp4 haha.mp4
+              node android.js ${{secrets.PASSWORD}}     
         - uses: actions/upload-artifact@main
           with:
               path: haha.mp4
