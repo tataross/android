@@ -8,6 +8,7 @@ const opts =
     path: '/wd/hub',
     hostname: '0.0.0.0',
     port: 4723,
+    connectionRetryTimeout: 2000000,
     capabilities:
     {
         platformName:'Android',
@@ -15,7 +16,6 @@ const opts =
         'appium:app':path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
         'appium:uiautomator2ServerInstallTimeout':200000,
         'appium:androidInstallTimeou':300000,
-        //connectionRetryTimeout: 2000000,
         'appium:adbExecTimeout':200000
     }
 }
