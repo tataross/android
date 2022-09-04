@@ -50,8 +50,6 @@ jobs:
           with:
               node-version: 18.x
         - run: |
-              which sdkmanager
-              which avdmanager
               ls -al $ANDROID_HOME
               ls -al $ANDROID_HOME/cmdline-tools
               brew install ffmpeg
