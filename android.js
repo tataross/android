@@ -10,13 +10,13 @@ const opts =
     port: 4723,
     capabilities:
     {
-        platformName: 'Android',
-        automationName: 'UiAutomator2',
-        app: path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
-        uiautomator2ServerInstallTimeout: 150000,
-        androidInstallTimeout: 180000,
+        platformName:'Android',
+        'appium:automationName':'UiAutomator2',
+        'appium:app':path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
+        'appium:uiautomator2ServerInstallTimeout':200000,
+        'appium:androidInstallTimeou':300000,
         //connectionRetryTimeout: 2000000,
-        adbExecTimeout: 100000
+        'appium:adbExecTimeout':200000
     }
 }
 
