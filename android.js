@@ -24,7 +24,7 @@ const opts =
 const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
 await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 30))
-const tvLabel = await client.$$('id=com.sky.sea.cashzine:id/tv_label').at(0)
+/*const tvLabel = await client.$$('id=com.sky.sea.cashzine:id/tv_label').at(0)
 await tvLabel.click()
 await client.$('id=com.sky.sea.cashzine:id/tv_finshed').click()
 await client.$('id=com.sky.sea.cashzine:id/ll_agree').click()
@@ -41,7 +41,7 @@ await client.$('id=com.sky.sea.cashzine:id/iv_article_icon_big').click()
 console.log(await client.getContexts())
 await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 30))
 const {height} = await client.getWindowRect()
-for (const _ of globalThis.Array(10).keys()) await client.touchScroll(0, height)
+for (const _ of globalThis.Array(10).keys()) await client.touchScroll(0, height)*/
 
 await fs.writeFile('haha.mp4', await client.stopRecordingScreen(), 'base64')
 await client.deleteSession()
