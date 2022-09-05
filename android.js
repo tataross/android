@@ -17,7 +17,8 @@ const opts =
         'appium:app':path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
         'appium:uiautomator2ServerInstallTimeout':200000,
         'appium:androidInstallTimeout':400000,
-        'appium:adbExecTimeout':400000
+        'appium:adbExecTimeout':400000,
+        'appium:newCommandTimeout':120
     }
 }
 
