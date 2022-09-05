@@ -24,9 +24,11 @@ const opts =
 
 const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
-//await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 60))
-const tvLabel = await client.$$('id=com.sky.sea.cashzine:id/tv_label').at(0)
-await tvLabel.waitForClickable()
+const tvLabel = await client.waitUntil(async () =>
+{
+    const _ = await client.$$('id=com.sky.sea.cashzine:id/tv_label')
+    return  _.length ？ _.at(0) ： false
+})
 await tvLabel.click()
 await client.$('id=com.sky.sea.cashzine:id/tv_finshed').click()
 await client.$('id=com.sky.sea.cashzine:id/ll_agree').click()
