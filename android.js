@@ -28,7 +28,7 @@ const tvLabel = await client.waitUntil(async () =>
 {
     const _ = await client.$$('id=com.sky.sea.cashzine:id/tv_label')
     return  _.length ? _.at(0) : false
-})
+}, {timeout:0})
 await tvLabel.click()
 await client.$('id=com.sky.sea.cashzine:id/tv_finshed').click()
 await client.$('id=com.sky.sea.cashzine:id/ll_agree').click()
