@@ -1,4 +1,4 @@
-/import webdriverio from 'webdriverio'
+import webdriverio from 'webdriverio'
 import {promises as fs} from 'fs'
 import path from 'path'
 import process from 'process'
