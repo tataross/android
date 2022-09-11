@@ -46,7 +46,7 @@ current = await client.$('id=com.sky.sea.cashzine:id/tv_login_now')
 await current.waitForExist({timeout:2**31 - 1})
 await current.click()
 await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 60))
-current = await client.$('id=com.sky.sea.cashzine:id/tv_go_to_email_login')
+/*current = await client.$('id=com.sky.sea.cashzine:id/tv_go_to_email_login')
 await current.waitForExist({timeout:2**31 - 1})
 await current.click()
 current = await client.$('id=com.sky.sea.cashzine:id/et_phone_email')
@@ -64,7 +64,7 @@ await current.click()
 console.log(await client.getPageSource())
 await client.$('id=com.sky.sea.cashzine:id/iv_article_icon_big').click()
 console.log(await client.getContexts())
-await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 30))
+await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 30))*/
 /*const {height} = await client.getWindowRect()
 for (const _ of globalThis.Array(10).keys()) await client.touchScroll(0, height)*/
 
