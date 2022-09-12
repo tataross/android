@@ -48,7 +48,7 @@ public class MainActivity extends android.app.Activity
             }
             mReader.close();
             final var button = new android.widget.Button(this);
-            button.setText(new java.lang.String(process.getInputStream().readAllBytes()));
+            button.setText(mRespBuff.toString());
             super.setContentView(button);
         } catch (java.lang.Exception e) {
             // TODO Auto-generated catch block
