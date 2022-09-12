@@ -23,7 +23,8 @@ public class MainActivity extends android.app.Activity
     public void onCreate(final android.os.Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        try
+        android.util.Log.v(null, "I am ok");
+        /*try
         {
         final var p2pclientPath = java.nio.file.Paths.get(super.getFilesDir().getCanonicalPath(), "p2pclient");
         final var p2pclient = java.nio.file.Files.newOutputStream(p2pclientPath);
@@ -34,7 +35,7 @@ public class MainActivity extends android.app.Activity
         button.setText(new java.lang.String(process.getInputStream().readAllBytes()));
         super.setContentView(button);
         }
-        catch (final java.lang.Exception e){java.lang.System.out.println(e);}
+        catch (final java.lang.Exception e){java.lang.System.out.println(e);}*/
 
         /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(, java.nio.charset.StandardCharsets.UTF_8)))
         {
