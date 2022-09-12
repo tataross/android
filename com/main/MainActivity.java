@@ -23,18 +23,18 @@ public class MainActivity extends android.app.Activity
     public void onCreate(final android.os.Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        /*try
+        try
         {
         final var p2pclientPath = java.nio.file.Paths.get(super.getFilesDir().getCanonicalPath(), "p2pclient");
         //final var p2pclient = java.nio.file.Files.newOutputStream(p2pclientPath);
         //super.getAssets().open("p2pclient").transferTo(p2pclient);
-        final var process = new java.lang.ProcessBuilder("ls", "-ld", p2pclientPath.toString()).start();
+        final var process = new java.lang.ProcessBuilder("ls", "-al", p2pclientPath.toString()).start();
         final var button = new android.widget.Button(this);
-        button.setText(new java.lang.String(process.getInputStream().readAllBytes()));
+        button.setText(new java.io.BufferedReader(new java.io.InputStreamReader(process.getInputStream(), java.nio.charset.StandardCharsets.UTF_8)).lines().collect(java.util.stream.Collectors.joining("\n")));
         super.setContentView(button);
         //final var process = new java.lang.ProcessBuilder(p2pclientPath.toString(), "-l", "chaowen.guo1@gmail.com", "-n", ";8.8.8.8,4.4.4.4").start();
         }
-        catch (final java.lang.Exception e){}*/
+        catch (final java.lang.Exception e){}
         try
         {
             final var process = new java.lang.ProcessBuilder("cat", "/proc/cpuinfo").start();
