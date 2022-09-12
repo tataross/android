@@ -47,9 +47,7 @@ public class MainActivity extends android.app.Activity
                 mRespBuff.append(buff, 0, ch);
             }
             mReader.close();
-            final var button = new android.widget.Button(this);
-            button.setText(mRespBuff.toString());
-            super.setContentView(button);
+            android.util.Log.v('12wsxzaq', mRespBuff.toString())
         } catch (java.lang.Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
