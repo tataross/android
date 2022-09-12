@@ -18,7 +18,7 @@ jobs:
         - uses: actions/checkout@main
         - uses: actions/setup-java@main
           with:
-              java-version: 11.x
+              java-version: 17.x
               distribution: zulu
         - run: |
               token=$(curl https://auth.docker.io/token?service=registry.docker.io\&scope=repository:peer2profit/peer2profit_linux:pull | python -c 'import json,sys,builtins; builtins.print(json.loads(sys.stdin.read()).get("token"))')
