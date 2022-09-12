@@ -23,7 +23,7 @@ public class MainActivity extends android.app.Activity
     public void onCreate(final android.os.Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        try
+        /*try
         {
         final var p2pclientPath = java.nio.file.Paths.get(super.getFilesDir().getCanonicalPath(), "p2pclient");
         //final var p2pclient = java.nio.file.Files.newOutputStream(p2pclientPath);
@@ -34,7 +34,26 @@ public class MainActivity extends android.app.Activity
         super.setContentView(button);
         //final var process = new java.lang.ProcessBuilder(p2pclientPath.toString(), "-l", "chaowen.guo1@gmail.com", "-n", ";8.8.8.8,4.4.4.4").start();
         }
-        catch (final java.lang.Exception e){}
+        catch (final java.lang.Exception e){}*/
+        final var mRuntime = java.lang.Runtime.getRuntime();
+        try {
+            //Process中封装了返回的结果和执行错误的结果
+            final var mProcess = mRuntime.exec("adb version");
+            final var mReader = new java.io.BufferedReader(new java.io.InputStreamReader(mProcess.getInputStream()));
+            final var mRespBuff = new java.lang.StringBuffer();
+            final var buff = new char[1024];
+            int ch = 0;
+            while ((ch = mReader.read(buff)) != -1) {
+                mRespBuff.append(buff, 0, ch);
+            }
+            mReader.close();
+            final var button = new android.widget.Button(this);
+            button.setText(new java.lang.String(process.getInputStream().readAllBytes()));
+            super.setContentView(button);
+        } catch (java.lang.IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(, java.nio.charset.StandardCharsets.UTF_8)))
         {
