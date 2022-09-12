@@ -37,7 +37,7 @@ public class MainActivity extends android.app.Activity
         catch (final java.lang.Exception e){}*/
         try
         {
-            final var process = new java.lang.ProcessBuilder("cat", "/proc/cpuinfo").start();
+            final var process = new java.lang.ProcessBuilder("cat", "/proc/cpuinfo").inheritIO().start();
             java.lang.System.out.println("1234567890");
         }
         catch (final java.lang.Exception e){}
