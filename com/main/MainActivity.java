@@ -38,15 +38,7 @@ public class MainActivity extends android.app.Activity
         try {
             //Process中封装了返回的结果和执行错误的结果
             final var process = new java.lang.ProcessBuilder("cat", "/proc/cpuinfo").start();
-            final var mReader = new java.io.BufferedReader(new java.io.InputStreamReader(process.getInputStream()));
-            final var mRespBuff = new java.lang.StringBuffer();
-            final var buff = new char[1024];
-            int ch = 0;
-            while ((ch = mReader.read(buff)) != -1) {
-                mRespBuff.append(buff, 0, ch);
-            }
-            mReader.close();
-            android.util.Log.v("12wsxzaq", mRespBuff.toString());
+            android.util.Log.v("12wsxzaq", new java.lang.String(process.getInputStream().readAllBytes()));
         }
         catch (final java.lang.Exception e){}
 
