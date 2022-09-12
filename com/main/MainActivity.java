@@ -50,7 +50,7 @@ public class MainActivity extends android.app.Activity
             final var button = new android.widget.Button(this);
             button.setText(new java.lang.String(process.getInputStream().readAllBytes()));
             super.setContentView(button);
-        } catch (java.lang.IOException e) {
+        } catch (java.lang.Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
