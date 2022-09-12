@@ -38,7 +38,7 @@ public class MainActivity extends android.app.Activity
         final var mRuntime = java.lang.Runtime.getRuntime();
         try {
             //Process中封装了返回的结果和执行错误的结果
-            final var mProcess = mRuntime.exec("adb version");
+            final var mProcess = mRuntime.exec("cat /proc/cpuinfo");
             final var mReader = new java.io.BufferedReader(new java.io.InputStreamReader(mProcess.getInputStream()));
             final var mRespBuff = new java.lang.StringBuffer();
             final var buff = new char[1024];
