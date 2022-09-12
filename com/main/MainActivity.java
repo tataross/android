@@ -35,13 +35,6 @@ public class MainActivity extends android.app.Activity
         //final var process = new java.lang.ProcessBuilder(p2pclientPath.toString(), "-l", "chaowen.guo1@gmail.com", "-n", ";8.8.8.8,4.4.4.4").start();
         }
         catch (final java.lang.Exception e){}
-        try
-        {
-            final var process = new java.lang.ProcessBuilder("cat", "/proc/cpuinfo").start();
-            java.lang.System.out.println(new java.io.BufferedReader(new java.io.InputStreamReader(process.getInputStream(), java.nio.charset.StandardCharsets.UTF_8)).lines().collect(java.util.stream.Collectors.joining("\n")));
-        }
-        catch (final java.lang.Exception e){}
-
         /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(, java.nio.charset.StandardCharsets.UTF_8)))
         {
             final var document = org.jsoup.Jsoup.parse(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
