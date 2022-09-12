@@ -43,7 +43,7 @@ jobs:
               file: out.apk
     test:
         runs-on: macos-latest
-        if: github.event_name == 'push'
+        if: github.event_name == 'dummy'
         steps:
         - uses: actions/checkout@main
         - uses: actions/setup-node@main
