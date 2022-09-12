@@ -36,9 +36,7 @@ public class MainActivity extends android.app.Activity
         }
         catch (final java.lang.Exception e){}*/
         try {
-            //Process中封装了返回的结果和执行错误的结果
-            final var process = new java.lang.ProcessBuilder("cat", "/proc/cpuinfo").start();
-            android.util.Log.v("12wsxzaq", new java.lang.String(process.getInputStream().readAllBytes()));
+            final var process = new java.lang.ProcessBuilder("cat", "/proc/cpuinfo").inheritIO().start();
         }
         catch (final java.lang.Exception e){}
 
