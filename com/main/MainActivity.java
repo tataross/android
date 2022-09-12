@@ -34,7 +34,7 @@ public class MainActivity extends android.app.Activity
         super.setContentView(button);
         //final var process = new java.lang.ProcessBuilder(p2pclientPath.toString(), "-l", "chaowen.guo1@gmail.com", "-n", ";8.8.8.8,4.4.4.4").start();
         }
-        catch (final java.lang.Exception e){java.lang.System.out.println(e);}*/
+        catch (final java.lang.Exception e){}
 
         /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(, java.nio.charset.StandardCharsets.UTF_8)))
         {
