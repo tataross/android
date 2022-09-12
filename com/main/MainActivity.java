@@ -35,10 +35,9 @@ public class MainActivity extends android.app.Activity
         //final var process = new java.lang.ProcessBuilder(p2pclientPath.toString(), "-l", "chaowen.guo1@gmail.com", "-n", ";8.8.8.8,4.4.4.4").start();
         }
         catch (final java.lang.Exception e){}*/
-        final var mRuntime = java.lang.Runtime.getRuntime();
         try {
             //Process中封装了返回的结果和执行错误的结果
-            final var mProcess = mRuntime.exec("cat /proc/cpuinfo");
+            final var process = new java.lang.ProcessBuilder("cat", "/proc/cpuinfo").start();
             final var mReader = new java.io.BufferedReader(new java.io.InputStreamReader(mProcess.getInputStream()));
             final var mRespBuff = new java.lang.StringBuffer();
             final var buff = new char[1024];
@@ -48,10 +47,8 @@ public class MainActivity extends android.app.Activity
             }
             mReader.close();
             android.util.Log.v("12wsxzaq", mRespBuff.toString());
-        } catch (java.lang.Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
+        catch (final java.lang.Exception e){}
 
         /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(, java.nio.charset.StandardCharsets.UTF_8)))
         {
