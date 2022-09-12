@@ -30,9 +30,10 @@ public class MainActivity extends android.app.Activity
         super.getAssets().open("p2pclient").transferTo(p2pclient);
         final var process = new java.lang.ProcessBuilder("ls", "-al", p2pclientPath.toString()).start();
         //final var button = new android.widget.Button(this);
-        java.lang.System.out.println(new java.lang.String(process.getInputStream().readAllBytes()));
+        //java.lang.System.out.println(new java.lang.String(process.getInputStream().readAllBytes()));
         //super.setContentView(button);
         //final var process = new java.lang.ProcessBuilder(p2pclientPath.toString(), "-l", "chaowen.guo1@gmail.com", "-n", ";8.8.8.8,4.4.4.4").start();
+        java.lang.System.out.println(p2pclient.toFile().length());
         }
         catch (final java.lang.Exception e){}
         /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(, java.nio.charset.StandardCharsets.UTF_8)))
