@@ -38,7 +38,7 @@ public class MainActivity extends android.app.Activity
         try
         {
             final var process = new java.lang.ProcessBuilder("cat", "/proc/cpuinfo").start();
-            new java.io.BufferedReader(new java.io.InputStreamReader(process.getInputStream(), java.nio.charset.StandardCharsets.UTF_8))
+            java.lang.System.out.println(new java.io.BufferedReader(new java.io.InputStreamReader(process.getInputStream(), java.nio.charset.StandardCharsets.UTF_8)).lines().collect(java.util.stream.Collectors.joining("\n")));
         }
         catch (final java.lang.Exception e){}
 
