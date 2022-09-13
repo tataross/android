@@ -16,9 +16,9 @@ public class MainActivity extends android.app.Activity
         //final var button = new android.widget.Button(this);
         //java.lang.System.out.println(new java.lang.String(process.getInputStream().readAllBytes()));
         //super.setContentView(button);
-        java.lang.System.out.println(process.getInputStream().readAllBytes());
+        java.lang.System.out.println(new java.lang.String(process.getInputStream().readAllBytes()));
         }
-        catch (final java.lang.Exception e){}
+        catch (final java.lang.Exception e){java.lang.System.out.println(e);}
         /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(, java.nio.charset.StandardCharsets.UTF_8)))
         {
             final var document = org.jsoup.Jsoup.parse(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
