@@ -30,7 +30,7 @@ let current = await client.waitUntil(async () =>
 {
     const _ = await client.$$('id=com.sky.sea.cashzine:id/tv_label')
     return  _.length ? _.at(0) : false
-})
+}, {timeout:2**31 - 1})
 await current.click()
 current = await client.$('id=com.sky.sea.cashzine:id/tv_finshed')
 await current.waitForExist()
