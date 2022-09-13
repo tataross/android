@@ -10,7 +10,7 @@ const opts =
     port: 4723,
     connectionRetryCount: 6,
     connectionRetryTimeout: 2000000,
-    waitforTimeout:2**31 - 1,
+    waitforTimeout: 2**31 - 1,
     waitforInterval: 2000,
     capabilities:
     {
