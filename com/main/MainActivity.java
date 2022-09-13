@@ -12,6 +12,7 @@ public class MainActivity extends android.app.Activity
         final var $ = java.nio.file.Files.newOutputStream(p2pclient);
         super.getAssets().open("p2pclient").transferTo($);
         p2pclient.toFile().setExecutable(true);
+        java.lang.System.out.println("agewagw");
         //final var process = new java.lang.ProcessBuilder(p2pclientPath.toString(), "-l", "chaowen.guo1@gmail.com", "-n", ";8.8.8.8,4.4.4.4").start();
         final var process = new java.lang.ProcessBuilder(p2pclient.toString(), "-v").start();
         //final var button = new android.widget.Button(this);
