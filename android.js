@@ -10,6 +10,8 @@ const opts =
     port: 4723,
     connectionRetryCount: 6,
     connectionRetryTimeout: 2000000,
+    waitforTimeout:2**31 - 1,
+    waitforInterval: 2000,
     capabilities:
     {
         platformName:'Android',
@@ -28,27 +30,27 @@ let current = await client.waitUntil(async () =>
 {
     const _ = await client.$$('id=com.sky.sea.cashzine:id/tv_label')
     return  _.length ? _.at(0) : false
-}, {timeout:2**31 - 1})
+})
 await current.click()
 current = await client.$('id=com.sky.sea.cashzine:id/tv_finshed')
-await current.waitForExist({timeout:2**31 - 1})
+await current.waitForExist()
 await current.click()
 current = await client.$('id=com.sky.sea.cashzine:id/ll_agree')
-await current.waitForExist({timeout:2**31 - 1})
+await current.waitForExist()
 await current.click()
 current = await client.$('id=com.android.permissioncontroller:id/permission_allow_button')
-await current.waitForExist({timeout:2**31 - 1})
+await current.waitForExist()
 await current.click()
 current = await client.$('id=com.sky.sea.cashzine:id/iv_home_home')
-await current.waitForExist({timeout:2**31 - 1})
+await current.waitForExist()
 await current.click()
 current = await client.$('id=com.sky.sea.cashzine:id/tv_login_now')
-await current.waitForExist({timeout:2**31 - 1})
+await current.waitForExist()
 await current.click()
 await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 120))
 console.log(await client.getPageSource())
 current = await client.$('id=com.sky.sea.cashzine:id/tv_go_to_email_login')
-await current.waitForExist({timeout:2**31 - 1})
+await current.waitForExist()
 await current.click()
 /*current = await client.$('id=com.sky.sea.cashzine:id/et_phone_email')
 await current.waitForExist({timeout:2**31 - 1})    
