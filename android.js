@@ -9,7 +9,7 @@ const opts =
     hostname: '0.0.0.0',
     port: 4723,
     connectionRetryCount: 10,
-    connectionRetryTimeout: 2000000,
+    connectionRetryTimeout: 3000000,
     waitforTimeout: 2**31 - 1,
     waitforInterval: 2000,
     capabilities:
@@ -55,7 +55,7 @@ await current.waitForExist()
 await current.click()
 //await client.$('id=com.sky.sea.cashzine:id/iv_article_icon_big').click()
 console.log(await client.getContexts())
-await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 30))*/
+await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 30))
 /*const {height} = await client.getWindowRect()
 for (const _ of globalThis.Array(10).keys()) await client.touchScroll(0, height)*/
 
