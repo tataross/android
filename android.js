@@ -20,7 +20,7 @@ const opts =
         'appium:uiautomator2ServerInstallTimeout': 200000,
         'appium:androidInstallTimeout': 400000,
         'appium:adbExecTimeout': 400000,
-        'appium:newCommandTimeout':240
+        'appium:newCommandTimeout':250
     }
 }
 
