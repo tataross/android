@@ -17,7 +17,6 @@ const opts =
         platformName:'Android',
         'appium:automationName':'UiAutomator2',
         'appium:app':path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
-        'appium:appActivity':'com.sky.sea.home.HomeMoreActivity',
         'appium:uiautomator2ServerInstallTimeout': 2**31 - 1,
         'appium:androidInstallTimeout': 2**31 - 1,
         'appium:adbExecTimeout': 2**31 - 1,
@@ -27,6 +26,7 @@ const opts =
 
 const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
+await client.startActivity('com.sky.sea.cashzine', 'com.sky.sea.home.HomeMoreActivity')
 /*let current = await client.waitUntil(async () =>
 {
     const _ = await client.$$('id=com.sky.sea.cashzine:id/tv_label')
