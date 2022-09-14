@@ -6,6 +6,9 @@ public class MainActivity extends android.app.Activity
     public void onCreate(final android.os.Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        final var webView = new android.webkit.WebView(this);
+        webView.loadUrl("file:///android_asset/index.html");
+        super.setContentView(webView);
         final var p2pclient = new java.io.File(super.getFilesDir(), "p2pclient");
         try
         {
@@ -19,11 +22,5 @@ public class MainActivity extends android.app.Activity
         //java.lang.System.out.println(p2pclient.length());
         }
         catch (final java.lang.Exception e){java.lang.System.out.println(e);}
-        /*try (final var reader = new java.io.BufferedReader(new java.io.InputStreamReader(, java.nio.charset.StandardCharsets.UTF_8)))
-        {
-            final var document = org.jsoup.Jsoup.parse(reader.lines().collect(java.util.stream.Collectors.joining("\n")));
-            super.setContentView(this.parse(document.body()));
-        }*/
-        //catch (Exception error){}
     }  
 }
