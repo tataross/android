@@ -8,8 +8,8 @@ const opts =
     path: '/wd/hub',
     hostname: '0.0.0.0',
     port: 4723,
-    connectionRetryCount: 6,
-    connectionRetryTimeout: 2000000,
+    connectionRetryCount: 10,
+    connectionRetryTimeout: 2**31 - 1,
     waitforTimeout: 2**31 - 1,
     waitforInterval: 2000,
     capabilities:
@@ -17,9 +17,9 @@ const opts =
         platformName:'Android',
         'appium:automationName':'UiAutomator2',
         'appium:app':path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
-        'appium:uiautomator2ServerInstallTimeout': globalThis.Number.MAX_SAFE_INTEGER,
-        'appium:androidInstallTimeout': globalThis.Number.MAX_SAFE_INTEGER,
-        'appium:adbExecTimeout': globalThis.Number.MAX_SAFE_INTEGER,
+        'appium:uiautomator2ServerInstallTimeout': 2**31 - 1,
+        'appium:androidInstallTimeout': 2**31 - 1,
+        'appium:adbExecTimeout': 2**31 - 1,
         'appium:newCommandTimeout':240
     }
 }
