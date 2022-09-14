@@ -17,6 +17,7 @@ const opts =
         platformName:'Android',
         'appium:automationName':'UiAutomator2',
         'appium:app':path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
+        'appium:appActivity':'com.sky.sea.home.HomeMoreActivity',
         'appium:uiautomator2ServerInstallTimeout':200000,
         'appium:androidInstallTimeout':400000,
         'appium:adbExecTimeout':400000,
@@ -26,7 +27,7 @@ const opts =
 
 const client = await webdriverio.remote(opts)
 await client.startRecordingScreen()
-let current = await client.waitUntil(async () =>
+/*let current = await client.waitUntil(async () =>
 {
     const _ = await client.$$('id=com.sky.sea.cashzine:id/tv_label')
     return  _.length ? _.at(0) : false
@@ -52,12 +53,13 @@ console.log(await client.getCurrentActivity())
 current = await client.$('id=com.sky.sea.cashzine:id/tv_login_now')
 await current.waitForExist()
 await current.click()
-console.log(await client.getCurrentActivity())
+console.log(await client.getCurrentActivity())*/
 await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 120))
 console.log(await client.getPageSource())
 current = await client.$('id=com.sky.sea.cashzine:id/tv_go_to_email_login')
 await current.waitForExist()
 await current.click()
+console.log(await client.getCurrentActivity())
 /*current = await client.$('id=com.sky.sea.cashzine:id/et_phone_email')
 await current.waitForExist({timeout:2**31 - 1})    
 await current.setValue('chaowen.guo1@gmail.com')
