@@ -18,9 +18,9 @@ const opts =
         'appium:automationName':'UiAutomator2',
         'appium:app':path.join(path.dirname(new globalThis.URL(import.meta.url).pathname), 'cashzine.apk'),
         'appium:appActivity':'com.sky.sea.home.HomeMoreActivity',
-        'appium:uiautomator2ServerInstallTimeout':200000,
-        'appium:androidInstallTimeout':400000,
-        'appium:adbExecTimeout':400000,
+        'appium:uiautomator2ServerInstallTimeout': globalThis.Infinity,
+        'appium:androidInstallTimeout': globalThis.Infinity,
+        'appium:adbExecTimeout': globalThis.Infinity,
         'appium:newCommandTimeout':240
     }
 }
