@@ -75,9 +75,9 @@ jobs:
               which sleep
               /system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
               /system/bin/input tap 1260 2935
-              sleep 10
+              sleep 30
               /system/bin/uiautomator dump /data/local/tmp/uidump.xml
-              sleep 150'
+              sleep 120'
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/uidump.xml uidump.xml
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/haha.mp4 haha.mp4
         - uses: actions/upload-artifact@main
