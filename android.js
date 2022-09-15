@@ -30,7 +30,7 @@ await client.startActivity('com.sky.sea.cashzine', 'com.sky.sea.home.main.MainAc
 let current = await client.$('id=com.sky.sea.cashzine:id/iv_home_home')
 await current.waitForExist()
 await current.click()
-let current = await client.$('id=com.sky.sea.cashzine:id/tv_login_now')
+current = await client.$('id=com.sky.sea.cashzine:id/tv_login_now')
 await current.waitForExist()
 await current.click()
 //await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 60))
