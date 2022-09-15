@@ -72,9 +72,9 @@ jobs:
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashzine.apk
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell '/system/bin/screenrecord /data/local/tmp/haha.mp4 &
               /system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
-              /system/bin/uiautomator dump /data/local/tmp/uidump.xml
               /system/bin/input tap 1260 2935
-              sleep 180'
+              sleep 180
+              /system/bin/uiautomator dump /data/local/tmp/uidump.xml'
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/uidump.xml uidump.xml
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/haha.mp4 haha.mp4
         - uses: actions/upload-artifact@main
