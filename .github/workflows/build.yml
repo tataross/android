@@ -64,7 +64,7 @@ jobs:
               $ANDROID_HOME/platform-tools/adb root
               while [[ $($ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r') != 1 ]]
               do
-                  sleep 60
+                  sleep 240
               done
               $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r'
               #node android.js ${{secrets.PASSWORD}}
