@@ -70,13 +70,20 @@ jobs:
               #node android.js ${{secrets.PASSWORD}}
               $ANDROID_HOME/platform-tools/adb devices -l
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashzine.apk
-              $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell 'screenrecord /data/local/tmp/haha.mp4
-              am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity'
-              sleep 180
-              $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/haha.mp4 haha.mp4
+              $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell 'am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
+              sleep 10
+              screencap -p /data/local/tmp/a.png'
+              input tap 1260 2935
+              sleep 10
+              screencap -p /data/local/tmp/b.png'
+              #sleep 180
+              $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/a.png a.png
+              $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/b.png b.png
         - uses: actions/upload-artifact@main
           with:
-              path: haha.mp4
+              path: |
+                  a.png
+                  b.png
     clean:
         runs-on: ubuntu-latest
         permissions:
