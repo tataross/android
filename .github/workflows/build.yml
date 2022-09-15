@@ -50,23 +50,26 @@ jobs:
           with:
               node-version: 18.x
         - run: |
-              brew install ffmpeg
+              #brew install ffmpeg
               #curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
               curl https://bitbucket.org/chaowenguo/common/raw/main/package.json > package.json
-              npm install -g appium 
-              npm install webdriverio
+              #npm install -g appium 
+              #npm install webdriverio
               #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
-              appium & 
+              #appium & 
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
               $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &
+              $ANDROID_HOME/platform-tools/adb root
               $ANDROID_HOME/platform-tools/adb wait-for-device
               while [[ $($ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r') != 1 ]]
               do
                   sleep 10
               done
               $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r'
-              node android.js ${{secrets.PASSWORD}}     
+              #node android.js ${{secrets.PASSWORD}}
+              $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell screenrecord -p /data/local/tmp/haha.mp4
+              $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/haha.mp4 .
         - uses: actions/upload-artifact@main
           with:
               path: haha.mp4
