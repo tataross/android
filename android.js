@@ -9,7 +9,7 @@ const opts =
     hostname: '0.0.0.0',
     port: 4723,
     connectionRetryCount: 10,
-    connectionRetryTimeout: 3000000,
+    connectionRetryTimeout: 2000000,
     waitforTimeout: 2**31 - 1,
     waitforInterval: 2000,
     capabilities:
@@ -20,7 +20,7 @@ const opts =
         'appium:uiautomator2ServerInstallTimeout': 200000,
         'appium:androidInstallTimeout': 400000,
         'appium:adbExecTimeout': 400000,
-        'appium:newCommandTimeout':250
+        'appium:newCommandTimeout':240
     }
 }
 
@@ -53,8 +53,8 @@ await current.click()
 current = await client.$('id=com.sky.sea.cashzine:id/title_container').$$('android.widget.TextView').at(2)
 await current.waitForExist()
 await current.click()
-//await client.$('id=com.sky.sea.cashzine:id/iv_article_icon_big').click()
-console.log(await client.getContexts())
+const a = await client.$('id=com.sky.sea.cashzine:id/srv_article_list').$$('//*')
+await a[0].click()
 await new globalThis.Promise(_ => globalThis.setTimeout(_, 1000 * 30))
 /*const {height} = await client.getWindowRect()
 for (const _ of globalThis.Array(10).keys()) await client.touchScroll(0, height)*/
