@@ -52,7 +52,7 @@ jobs:
         - run: |
               #brew install ffmpeg
               #curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
-              curl https://bitbucket.org/chaowenguo/common/raw/main/package.json > package.json
+              #curl https://bitbucket.org/chaowenguo/common/raw/main/package.json > package.json
               #npm install -g appium 
               #npm install webdriverio
               #$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | grep system-images
