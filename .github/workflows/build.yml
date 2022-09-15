@@ -70,7 +70,7 @@ jobs:
               #node android.js ${{secrets.PASSWORD}}
               $ANDROID_HOME/platform-tools/adb devices -l
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashzine.apk
-              $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell '/system/bin/screenrecord /data/local/tmp/haha.mp4
+              $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell '/system/bin/screenrecord /data/local/tmp/haha.mp4 &
               /system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
               /system/bin/uiautomator dump /data/local/tmp/uidump.xml
               /system/bin/input tap 1260 2935
