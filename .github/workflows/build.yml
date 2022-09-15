@@ -46,9 +46,9 @@ jobs:
         if: github.event_name == 'push'
         steps:
         - uses: actions/checkout@main
-        - uses: actions/setup-node@main
-          with:
-              node-version: 18.x
+        #- uses: actions/setup-node@main
+        #  with:
+        #      node-version: 18.x
         - run: |
               #brew install ffmpeg
               #curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
