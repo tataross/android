@@ -73,15 +73,11 @@ jobs:
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell '/system/bin/screenrecord /data/local/tmp/haha.mp4
               /system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
               /system/bin/input tap 1260 2935
-              sleep 180
-              screencap -p /data/local/tmp/haha.png'
-              $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/haha.png haha.png
+              sleep 180'
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/haha.mp4 haha.mp4
         - uses: actions/upload-artifact@main
           with:
-              path: |
-                  haha.png
-                  haha.mp4
+              path: haha.mp4
     clean:
         runs-on: ubuntu-latest
         permissions:
