@@ -69,7 +69,7 @@ jobs:
               $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r'
               #node android.js ${{secrets.PASSWORD}}
               $ANDROID_HOME/platform-tools/adb devices -l
-              $ANDROID_HOME/platform-tools/adb install cashzine.apk
+              $ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashzine.apk
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell 'screenrecord /data/local/tmp/haha.mp4
               am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity'
               sleep 180
