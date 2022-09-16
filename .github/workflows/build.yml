@@ -61,8 +61,6 @@ jobs:
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
               $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 -writable-system&
               $ANDROID_HOME/platform-tools/adb wait-for-device
-              $ANDROID_HOME/platform-tools/adb root
-              $ANDROID_HOME/platform-tools/adb remount
               while [[ $($ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r') != 1 ]]
               do
                   sleep 30
@@ -70,6 +68,8 @@ jobs:
               $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r'
               #node android.js ${{secrets.PASSWORD}}
               $ANDROID_HOME/platform-tools/adb devices -l
+              $ANDROID_HOME/platform-tools/adb root
+              $ANDROID_HOME/platform-tools/adb remount
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashzine.apk
               curl https://packages.termux.dev/apt/termux-main/pool/main/d/dpkg/dpkg_1.21.9_x86_64.deb > dpkg.deb
               dpkg --fsys-tarfile dpkg.deb | tar -xf - ./data/data/com.termux/files/usr/bin/dpkg
