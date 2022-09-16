@@ -69,7 +69,7 @@ jobs:
               $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r'
               #node android.js ${{secrets.PASSWORD}}
               $ANDROID_HOME/platform-tools/adb devices -l
-              $ANDROID_HOME/platform-tools/adb remount
+              #$ANDROID_HOME/platform-tools/adb remount
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashzine.apk
               curl https://packages.termux.dev/apt/termux-main/pool/main/p/pcre2grep/pcre2grep_10.40_x86_64.deb > pcre2grep.deb
               dpkg --fsys-tarfile pcre2grep.deb | tar -xf - ./data/data/com.termux/files/usr/bin/pcre2grep
