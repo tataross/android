@@ -50,7 +50,7 @@ jobs:
         #  with:
         #      node-version: 18.x
         - run: |
-              #brew install ffmpeg
+              brew install dpkg
               #curl http://cashmagnetapp.com/Content/cashmagnetNew.apk > cashmagnetNew.apk
               #curl https://bitbucket.org/chaowenguo/common/raw/main/package.json > package.json
               #npm install -g appium 
