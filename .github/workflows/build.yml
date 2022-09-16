@@ -70,21 +70,17 @@ jobs:
               #node android.js ${{secrets.PASSWORD}}
               $ANDROID_HOME/platform-tools/adb devices -l
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashzine.apk
-              $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell '/system/bin/screenrecord /data/local/tmp/haha.mp4 &
-              which python
-              which pyhton3
+              $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell '
               /system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
               /system/bin/input tap 1260 2935
-              /system/bin/sleep 1m
+              /system/bin/sleep 2m
               /system/bin/uiautomator dump /data/local/tmp/uidump.xml
               sleep 120'
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/uidump.xml uidump.xml
-              $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/haha.mp4 haha.mp4
+              #$ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/haha.mp4 haha.mp4
         - uses: actions/upload-artifact@main
           with:
-              path: |
-                  haha.mp4
-                  uidump.xml
+              path: uidump.xml
     clean:
         runs-on: ubuntu-latest
         permissions:
