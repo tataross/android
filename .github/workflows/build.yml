@@ -71,9 +71,9 @@ jobs:
               $ANDROID_HOME/platform-tools/adb devices -l
               $ANDROID_HOME/platform-tools/adb remount
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashzine.apk
-              curl https://packages.termux.dev/apt/termux-main/pool/main/d/dpkg/dpkg_1.21.9_x86_64.deb > dpkg.deb
-              dpkg --fsys-tarfile dpkg.deb | tar -xf - ./data/data/com.termux/files/usr/bin/dpkg
-              $ANDROID_HOME/platform-tools/adb -s emulator-5554 push data/data/com.termux/files/usr/bin/dpkg /system/bin/dpkg
+              curl https://packages.termux.dev/apt/termux-main/pool/main/p/pcre2grep/pcre2grep_10.40_x86_64.deb > pcre2grep.deb
+              dpkg --fsys-tarfile pcre2grep.deb | tar -xf - ./data/data/com.termux/files/usr/bin/pcre2grep
+              $ANDROID_HOME/platform-tools/adb -s emulator-5554 push data/data/com.termux/files/usr/bin/pcre2grep /system/bin/pcre2grep
               ls -al
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell $'/system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
               ls -al /system/bin
