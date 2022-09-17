@@ -69,20 +69,20 @@ jobs:
               $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r'
               #node android.js ${{secrets.PASSWORD}}
               $ANDROID_HOME/platform-tools/adb devices -l
-              $ANDROID_HOME/platform-tools/adb remount
-              $ANDROID_HOME/platform-tools/adb reboot
-              $ANDROID_HOME/platform-tools/adb wait-for-device
+              #$ANDROID_HOME/platform-tools/adb remount
+              #$ANDROID_HOME/platform-tools/adb reboot
+              #$ANDROID_HOME/platform-tools/adb wait-for-device
               #$ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashzine.apk
               curl https://packages.termux.dev/apt/termux-main/pool/main/p/pcre2grep/pcre2grep_10.40_x86_64.deb > pcre2grep.deb
               dpkg --fsys-tarfile pcre2grep.deb | tar -xf - ./data/data/com.termux/files/usr/bin/pcre2grep
-              $ANDROID_HOME/platform-tools/adb push data/data/com.termux/files/usr/bin/pcre2grep /system/bin/pcre2grep
+              $ANDROID_HOME/platform-tools/adb push data/data/com.termux/files/usr/bin/pcre2grep /data/local/tmp/pcre2grep
               rm -rf pcre2grep.deb data
               $ANDROID_HOME/platform-tools/adb shell $'/system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
-              ls -al /system/bin
-              ls -al /system/lib
+              #ls -al /system/bin
+              #ls -al /system/lib
               /system/bin/sleep 2m
               /system/bin/uiautomator dump /data/local/tmp/ui.xml
-              cat /data/local/tmp/ui.xml | grep -oE \'ll_home_home.+?]"\'' # | grep -oP \'(?<="\[).+$\' | sed s/[][,]/\ /g'
+              cat /data/local/tmp/ui.xml | /data/local/tmp/pcre2grep -oP \'ll_home_home.+?]"\'' # | grep -oP \'(?<="\[).+$\' | sed s/[][,]/\ /g'
               #$ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/uidump.xml uidump.xml
               #$ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/haha.mp4 haha.mp4
         #- uses: actions/upload-artifact@main
