@@ -77,7 +77,6 @@ jobs:
                   sleep 30
               done
               $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r'
-              $ANDROID_HOME/platform-tools/adb root
               $ANDROID_HOME/platform-tools/adb remount
               $ANDROID_HOME/platform-tools/adb devices -l
               #$ANDROID_HOME/platform-tools/adb install cashzine.apk
