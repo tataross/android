@@ -89,6 +89,7 @@ jobs:
               $ANDROID_HOME/platform-tools/adb shell $'/system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
               ls -al /system/bin
               ls -al /system/lib
+              /system/bin/grep --help
               /system/bin/sleep 2m
               /system/bin/uiautomator dump /data/local/tmp/ui.xml
               cat /data/local/tmp/ui.xml | /system/bin/grep -oP \'ll_home_home.+?(?=]")\'' # | grep -oP \'(?<="\[).+$\' | sed s/[][,]/\ /g'
