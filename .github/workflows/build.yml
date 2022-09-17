@@ -69,7 +69,7 @@ jobs:
               #node android.js ${{secrets.PASSWORD}}
               $ANDROID_HOME/platform-tools/adb disable-verity # shell avbctl disable-verification
               $ANDROID_HOME/platform-tools/adb reboot
-              $ANDROID_HOME/platform-tools/adb wait-for-device
+              #$ANDROID_HOME/platform-tools/adb wait-for-device
               $ANDROID_HOME/platform-tools/adb root
               while [[ $($ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r') != 1 ]]
               do
