@@ -60,8 +60,8 @@ jobs:
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
               $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 -writable-system &
-              $ANDROID_HOME/platform-tools/adb root
               $ANDROID_HOME/platform-tools/adb wait-for-device
+              $ANDROID_HOME/platform-tools/adb root
               while [[ $($ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r') != 1 ]]
               do
                   sleep 30
@@ -75,9 +75,9 @@ jobs:
               #$ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashzine.apk
               curl https://packages.termux.dev/apt/termux-main/pool/main/p/pcre2grep/pcre2grep_10.40_x86_64.deb > pcre2grep.deb
               dpkg --fsys-tarfile pcre2grep.deb | tar -xf - ./data/data/com.termux/files/usr/bin/pcre2grep
-              $ANDROID_HOME/platform-tools/adb -s emulator-5554 push data/data/com.termux/files/usr/bin/pcre2grep /system/bin/pcre2grep
+              $ANDROID_HOME/platform-tools/adb push data/data/com.termux/files/usr/bin/pcre2grep /system/bin/pcre2grep
               rm -rf pcre2grep.deb data
-              $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell $'/system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
+              $ANDROID_HOME/platform-tools/adb shell $'/system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
               ls -al /system/bin
               ls -al /system/lib
               /system/bin/sleep 2m
