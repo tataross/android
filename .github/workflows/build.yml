@@ -71,9 +71,11 @@ jobs:
               $ANDROID_HOME/platform-tools/adb devices -l
               $ANDROID_HOME/platform-tools/adb remount
               $ANDROID_HOME/platform-tools/adb reboot
-              $ANDROID_HOME/platform-tools/adb wait-for-device
+              while [[ $($ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r') != 1 ]]
+              do
+                  sleep 30
+              done
               $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r'
-              #$ANDROID_HOME/platform-tools/adb wait-for-device
               #$ANDROID_HOME/platform-tools/adb install cashzine.apk
               curl https://packages.termux.dev/apt/termux-main/pool/main/p/pcre2grep/pcre2grep_10.40_x86_64.deb > pcre2grep.deb
               curl https://packages.termux.dev/apt/termux-main/pool/main/p/pcre2/pcre2_10.40_x86_64.deb > pcre2.deb
