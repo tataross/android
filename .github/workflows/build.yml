@@ -70,13 +70,12 @@ jobs:
               #node android.js ${{secrets.PASSWORD}}
               $ANDROID_HOME/platform-tools/adb devices -l
               $ANDROID_HOME/platform-tools/adb remount
-              $ANDROID_HOME/platform-tools/adb root
+              $ANDROID_HOME/platform-tools/adb reboot
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 install cashzine.apk
               curl https://packages.termux.dev/apt/termux-main/pool/main/p/pcre2grep/pcre2grep_10.40_x86_64.deb > pcre2grep.deb
               dpkg --fsys-tarfile pcre2grep.deb | tar -xf - ./data/data/com.termux/files/usr/bin/pcre2grep
-              rm -rf pcre2grep.deb data
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 push data/data/com.termux/files/usr/bin/pcre2grep /system/bin/pcre2grep
-              ls -al
+              rm -rf pcre2grep.deb data
               $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell $'/system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
               ls -al /system/bin
               ls -al /system/lib
