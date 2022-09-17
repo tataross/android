@@ -71,6 +71,8 @@ jobs:
               $ANDROID_HOME/platform-tools/adb devices -l
               $ANDROID_HOME/platform-tools/adb remount
               $ANDROID_HOME/platform-tools/adb reboot
+              $ANDROID_HOME/platform-tools/adb kill-server
+              $ANDROID_HOME/platform-tools/adb start-server
               while [[ $($ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r') != 1 ]]
               do
                   sleep 30
