@@ -42,7 +42,7 @@ jobs:
           with:
               repo_token: ${{secrets.GITHUB_TOKEN}}
               automatic_release_tag: latest
-              files: pal.apk
+              files: out.apk
     test:
         runs-on: macos-latest
         if: github.event_name == 'push'
