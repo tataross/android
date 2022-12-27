@@ -61,7 +61,7 @@ jobs:
               $ANDROID_HOME/platform-tools/adb shell '/system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
               /system/bin/sleep 2m
               /system/bin/uiautomator dump /data/local/tmp/ui0.xml
-              array=($(cat /data/local/tmp/ui.xml | awk -F ll_home_home {print\$NF} | awk -F]\" {print\$1} | awk -F \"\\\\[ {print\$NF} | awk {gsub\(/[][\,]/\,\"\ \"\,\$0\)}1))
+              array=($(cat /data/local/tmp/ui0.xml | awk -F ll_home_home {print\$NF} | awk -F]\" {print\$1} | awk -F \"\\\\[ {print\$NF} | awk {gsub\(/[][\,]/\,\"\ \"\,\$0\)}1))
               /system/bin/input tap $(($((${array[0]} + ${array[2]})) / 2)) $(($((${array[1]} + ${array[3]})) / 2))
               /system/bin/sleep 2m
               /system/bin/uiautomator dump /data/local/tmp/ui1.xml
