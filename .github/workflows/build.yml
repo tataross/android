@@ -61,7 +61,9 @@ jobs:
               $ANDROID_HOME/platform-tools/adb shell '/system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.HomeMoreActivity
               /system/bin/sleep 2m
               /system/bin/uiautomator dump /data/local/tmp/ui.xml
-              cat /data/local/tmp/ui.xml | awk -F ll_home_home {print\$NF} | awk -F]\" {print\$1} | awk -F \"\\\\[ {print\$NF}'
+              array=($(cat /data/local/tmp/ui.xml | awk -F ll_home_home {print\$NF} | awk -F]\" {print\$1} | awk -F \"\\\\[ {print\$NF} | awk {gsub\(/[][\,]/\,\"\ \"\,\$0\)}1))
+              echo $(($((${array[0]} + ${array[2]})) / 2))
+              echo $(($((${array[1]} + ${array[3]})) / 2))'
               $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui.xml ui.xml
         - uses: marvinpinto/action-automatic-releases@master
           with:
