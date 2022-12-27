@@ -45,7 +45,7 @@ jobs:
         steps:
         - uses: actions/checkout@main
         - run: |
-              brew install dpkg
+              #brew install dpkg
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
               $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 &
@@ -66,7 +66,7 @@ jobs:
               screencap /data/local/tmp/shot0.png'
               $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui.xml ui.xml
               $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/shot0.png shot0.png
-        - uses: marvinpinto/action-automatic-releases@master
+        - uses: marvinpinto/action-automatic-releases@latest
           with:
               repo_token: ${{secrets.GITHUB_TOKEN}}
               automatic_release_tag: latest
