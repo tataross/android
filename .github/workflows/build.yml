@@ -66,11 +66,9 @@ jobs:
               screencap /data/local/tmp/shot0.png'
               $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui.xml ui.xml
               $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/shot0.png shot0.png
-        - uses: marvinpinto/action-automatic-releases@latest
+        - uses: actions/upload-artifact@master
           with:
-              repo_token: ${{secrets.GITHUB_TOKEN}}
-              automatic_release_tag: latest
-              files: |
+              path: |
                   ui.xml
                   shot0.png
     clean:
