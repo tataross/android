@@ -58,9 +58,9 @@ jobs:
               $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r'
               $ANDROID_HOME/platform-tools/adb devices -l
               $ANDROID_HOME/platform-tools/adb install cashzine.apk
-              $ANDROID_HOME/platform-tools/adb shell $'/system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.HomeMoreActivity
+              $ANDROID_HOME/platform-tools/adb shell '/system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.HomeMoreActivity
               /system/bin/sleep 2m
-              /system/bin/uiautomator dump /data/local/tmp/ui.xml'
+              /system/bin/uiautomator dump /data/local/tmp/ui.xml
               cat /data/local/tmp/ui.xml | awk -F ll_home_home {print\$NF} | awk -F]\" {print\$1} | awk -F \"\\\\[ {print\$NF}'
               $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui.xml ui.xml
         - uses: marvinpinto/action-automatic-releases@master
