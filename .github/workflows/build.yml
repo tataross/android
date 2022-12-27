@@ -65,7 +65,7 @@ jobs:
               input tap $(($((${array[0]} + ${array[2]})) / 2)) $(($((${array[1]} + ${array[3]})) / 2))
               /system/bin/sleep 2m
               /system/bin/uiautomator dump /data/local/tmp/ui1.xml
-              screencap -p /data/local/tmp/shot0.png'
+              /system/bin/screencap -p /data/local/tmp/shot0.png'
               $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui0.xml ui0.xml
               $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui1.xml ui1.xml
               $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/shot0.png shot0.png
