@@ -62,12 +62,12 @@ jobs:
               /system/bin/sleep 2m
               /system/bin/uiautomator dump /data/local/tmp/ui.xml'
               #cat /data/local/tmp/ui.xml | /system/bin/grep -oP \'ll_home_home.+?(?=]")\'' # | grep -oP \'(?<="\[).+$\' | sed s/[][,]/\ /g'
-              $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/uidump.xml uidump.xml
+              $ANDROID_HOME/platform-tools/adb -s emulator-5554 pull /data/local/tmp/ui.xml ui.xml
         - uses: marvinpinto/action-automatic-releases@master
           with:
               repo_token: ${{secrets.GITHUB_TOKEN}}
               automatic_release_tag: latest
-              files: uidump.xml
+              files: ui.xml
     clean:
         runs-on: ubuntu-latest
         permissions:
