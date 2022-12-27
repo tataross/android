@@ -43,6 +43,7 @@ jobs:
         runs-on: macos-latest
         if: github.event_name == 'push'
         steps:
+        - uses: actions/checkout@main
         - run: |
               brew install dpkg
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
