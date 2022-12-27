@@ -59,17 +59,20 @@ jobs:
               $ANDROID_HOME/platform-tools/adb devices -l
               $ANDROID_HOME/platform-tools/adb install cashzine.apk
               $ANDROID_HOME/platform-tools/adb shell '/system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.HomeMoreActivity
+              screenrecord /data/local/tmp/ui.mp4
               /system/bin/sleep 2m
               /system/bin/uiautomator dump /data/local/tmp/ui.xml
               array=($(cat /data/local/tmp/ui.xml | awk -F ll_home_home {print\$NF} | awk -F]\" {print\$1} | awk -F \"\\\\[ {print\$NF} | awk {gsub\(/[][\,]/\,\"\ \"\,\$0\)}1))
-              echo $(($((${array[0]} + ${array[2]})) / 2))
-              echo $(($((${array[1]} + ${array[3]})) / 2))'
+              input tap $(($((${array[0]} + ${array[2]})) / 2)) $(($((${array[1]} + ${array[3]})) / 2))'
               $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui.xml ui.xml
+              $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui.mp4 ui.mp4
         - uses: marvinpinto/action-automatic-releases@master
           with:
               repo_token: ${{secrets.GITHUB_TOKEN}}
               automatic_release_tag: latest
-              files: ui.xml
+              files: |
+                  ui.xml
+                  ui.mp4
     clean:
         runs-on: ubuntu-latest
         permissions:
