@@ -67,7 +67,7 @@ jobs:
               /system/bin/uiautomator dump /data/local/tmp/ui1.xml
               screencap /data/local/tmp/shot0.png'
               $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui0.xml ui0.xml
-              $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui0.xml ui0.xml
+              $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui1.xml ui1.xml
               $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/shot0.png shot0.png
         - uses: actions/upload-artifact@master
           with:
