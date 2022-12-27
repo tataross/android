@@ -60,17 +60,20 @@ jobs:
               $ANDROID_HOME/platform-tools/adb install cashzine.apk
               $ANDROID_HOME/platform-tools/adb shell '/system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
               /system/bin/sleep 2m
-              /system/bin/uiautomator dump /data/local/tmp/ui.xml
+              /system/bin/uiautomator dump /data/local/tmp/ui0.xml
               array=($(cat /data/local/tmp/ui.xml | awk -F ll_home_home {print\$NF} | awk -F]\" {print\$1} | awk -F \"\\\\[ {print\$NF} | awk {gsub\(/[][\,]/\,\"\ \"\,\$0\)}1))
               input tap $(($((${array[0]} + ${array[2]})) / 2)) $(($((${array[1]} + ${array[3]})) / 2))
               /system/bin/sleep 2m
+              /system/bin/uiautomator dump /data/local/tmp/ui1.xml
               screencap /data/local/tmp/shot0.png'
-              $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui.xml ui.xml
+              $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui0.xml ui0.xml
+              $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui0.xml ui0.xml
               $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/shot0.png shot0.png
         - uses: actions/upload-artifact@master
           with:
               path: |
-                  ui.xml
+                  ui0.xml
+                  ui1.xml
                   shot0.png
     clean:
         runs-on: ubuntu-latest
