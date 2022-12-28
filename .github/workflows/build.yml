@@ -40,12 +40,11 @@ jobs:
               automatic_release_tag: latest
               files: out.apk
     test:
-        runs-on: ubuntu-22.04
+        runs-on: macos-latest
         if: github.event_name == 'push'
         steps:
         - uses: actions/checkout@main
         - run: |
-              egrep -c '(svm|vmx)' /proc/cpuinfo
               #brew install dpkg
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
