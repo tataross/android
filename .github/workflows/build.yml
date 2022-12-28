@@ -40,7 +40,7 @@ jobs:
               automatic_release_tag: latest
               files: out.apk
     test:
-        runs-on: macos-latest
+        runs-on: ubuntu-2204
         if: github.event_name == 'push'
         steps:
         - uses: actions/checkout@main
