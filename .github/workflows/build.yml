@@ -40,42 +40,34 @@ jobs:
               automatic_release_tag: latest
               files: out.apk
     test:
-        runs-on: ubuntu-22.04
+        runs-on: macos-latest
         if: github.event_name == 'push'
         steps:
         - uses: actions/checkout@main
         - run: |
-              cat /proc/cpuinfo
               #brew install dpkg
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
               $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 &
               $ANDROID_HOME/platform-tools/adb wait-for-device
-              #$ANDROID_HOME/platform-tools/adb root
-              while [[ $($ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r') != 1 ]]
+              $ANDROID_HOME/platform-tools/adb root
+              while [[ $($ANDROID_HOME/platform-tools/adb exec-out getprop sys.boot_completed) != 1 ]]
               do
                   sleep 30
               done
-              $ANDROID_HOME/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r'
+              $ANDROID_HOME/platform-tools/adb exec-out getprop sys.boot_completed
               $ANDROID_HOME/platform-tools/adb devices -l
+              curl -O https://f-droid.org/repo/com.termux_118.apk
+              $ANDROID_HOME/platform-tools/adb install com.termux_118.apk
+              rm -rf com.termux_118.apk
               $ANDROID_HOME/platform-tools/adb install cashzine.apk
-              $ANDROID_HOME/platform-tools/adb shell '/system/bin/am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
-              /system/bin/sleep 2m
-              /system/bin/uiautomator dump /data/local/tmp/ui0.xml
-              array=($(cat /data/local/tmp/ui0.xml | awk -F ll_home_home {print\$NF} | awk -F]\" {print\$1} | awk -F \"\\\\[ {print\$NF} | awk {gsub\(/[][\,]/\,\"\ \"\,\$0\)}1))
-              /system/bin/input tap $(($((${array[0]} + ${array[2]})) / 2)) $(($((${array[1]} + ${array[3]})) / 2))
-              /system/bin/sleep 2m
-              /system/bin/uiautomator dump /data/local/tmp/ui1.xml
-              /system/bin/screencap -p /data/local/tmp/shot0.png'
-              $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui0.xml ui0.xml
-              $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ui1.xml ui1.xml
-              $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/shot0.png shot0.png
+              $ANDROID_HOME/platform-tools/adb shell 'am start -n com.termux/com.termux.app.TermuxActivity
+              /system/bin/sleep 1m
+              screencap /data/local/tmp/ha.png'
+              $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ha.png ha.png
         - uses: actions/upload-artifact@master
           with:
-              path: |
-                  ui0.xml
-                  ui1.xml
-                  shot0.png
+              path: ha.png
     clean:
         runs-on: ubuntu-latest
         permissions:
