@@ -1,6 +1,6 @@
 task:
     container:
-        image: openjdk:slim
+        image: cirrusci/android-sdk:30
         kvm: true
     script: |
         apt update
