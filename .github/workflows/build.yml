@@ -46,8 +46,8 @@ jobs:
         - uses: actions/checkout@main
         - run: |
               sudo apt update
-              sudo apt install -y --no-install-recommends ffmpeg
-              ffmpeg -f x11grab -i :0 -t 120 t.mp4
+              sudo apt install -y --no-install-recommends ffmpeg xvfb xauth
+              xvfb-run ffmpeg -f x11grab -i :99.0 -t 120 t.mp4
               #brew install ffmpeg
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
