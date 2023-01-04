@@ -40,12 +40,13 @@ jobs:
               automatic_release_tag: latest
               files: out.apk
     test:
-        runs-on: macos-latest
+        runs-on: ubuntu-latest
         if: github.event_name == 'push'
         steps:
         - uses: actions/checkout@main
         - run: |
-              brew install ffmpeg
+              ffmpeg -f x11grab -i :0 -t 120 t.mp4
+              #brew install ffmpeg
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
               $ANDROID_HOME/emulator/emulator -avd android -no-snapshot -noaudio -no-boot-anim -memory 4096 &
