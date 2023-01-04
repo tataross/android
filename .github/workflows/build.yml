@@ -45,7 +45,7 @@ jobs:
         steps:
         - uses: actions/checkout@main
         - run: |
-              #brew install dpkg
+              brew install ffmpeg
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
               $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 &
@@ -66,9 +66,12 @@ jobs:
               screencap /data/local/tmp/ha.png'
               screencapture ha.jpg
               #$ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ha.png ha.png
+              ffmpeg -f avfoundation -i 0 -t 180 t.mp4
         - uses: actions/upload-artifact@master
           with:
-              path: ha.jpg
+              path: |
+                  ha.jpg
+                  t.mp4
     clean:
         runs-on: ubuntu-latest
         permissions:
