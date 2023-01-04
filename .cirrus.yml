@@ -3,6 +3,8 @@ task:
         image: openjdk:slim
         kvm: true
     script: |
+        apt update
+        apt install -y --no-install-recommends curl
         curl https://dl.google.com/android/repository/commandlinetools-linux-9123335_latest.zip -o commandline.zip
         unzip commandline.zip
         rm -rf commandline.zip
