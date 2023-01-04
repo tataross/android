@@ -45,6 +45,8 @@ jobs:
         steps:
         - uses: actions/checkout@main
         - run: |
+              apt update
+              apt install -y --no-install-recommends ffmpeg
               ffmpeg -f x11grab -i :0 -t 120 t.mp4
               #brew install ffmpeg
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
