@@ -48,7 +48,7 @@ jobs:
               #brew install dpkg
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
-              $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu host -no-snapshot -noaudio -no-boot-anim -memory 4096 &
+              $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 &
               $ANDROID_HOME/platform-tools/adb wait-for-device
               $ANDROID_HOME/platform-tools/adb root
               while [[ $($ANDROID_HOME/platform-tools/adb exec-out getprop sys.boot_completed) != 1 ]]
@@ -64,10 +64,11 @@ jobs:
               $ANDROID_HOME/platform-tools/adb shell 'am start -n com.termux/com.termux.app.TermuxActivity
               /system/bin/sleep 1m
               screencap /data/local/tmp/ha.png'
-              $ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ha.png ha.png
+              screencapture ha.jpg
+              #$ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ha.png ha.png
         - uses: actions/upload-artifact@master
           with:
-              path: ha.png
+              path: ha.jpg
     clean:
         runs-on: ubuntu-latest
         permissions:
