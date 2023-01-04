@@ -14,6 +14,6 @@ task:
         echo y | sdk/cmdline-tools/latest/bin/sdkmanager --no_https system-images\;android-30\;google_apis\;x86_64 platform-tools platforms\;android-33 --channel=0
         echo no | sdk/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
         nohup xvfb-run sdk/emulator/emulator -avd android -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 &
-        ffmpeg -f x11grab -i :$DISPLAY,0 -t 120 t.mp4
+        ffmpeg -f x11grab -i :99,0 -t 120 t.mp4
     artifacts:
         path: t.mp4
