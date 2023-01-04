@@ -1,5 +1,6 @@
 task:
-    container: ubuntu
+    container:
+        image: ubuntu
     script: |
         echo 1
         echo 2
