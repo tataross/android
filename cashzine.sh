@@ -32,12 +32,12 @@ rm -rf com.termux_118.apk
 sdk/platform-tools/adb install cashzine.apk
 #adb exec-out dumpsys activity | awk /mCurrentFocus/
 sdk/platform-tools/adb exec-out 'am start -n com.termux/com.termux.app.TermuxActivity
-sleep 1m
+sleep 30
 /data/data/com.termux/files/usr/bin/gawk -v RS=\\n{10} {print\ gensub\(/\\xb4\\x00\\x00\\x00/\,\"\\xff\\xff\\xff\\xff\"\,20\)} /system/bin/screenrecord | /data/data/com.termux/files/usr/bin/head -c -1 > /data/local/tmp/screenrecord
 mv /data/local/tmp/screenrecord /system/bin
 tap()
 {
-    sleep 1m
+    sleep 30
     uiautomator dump /data/local/tmp/ui.xml
     array=($(awk -v RS=\> -F= /$1/{gsub\(/[][\,\"]/\,\"\ \"\,\$NF\)\;print\$NF} /data/local/tmp/ui.xml))
     input tap $(($((${array[0]} + ${array[2]})) / 2)) $(($((${array[1]} + ${array[3]})) / 2))
@@ -75,7 +75,7 @@ do
         do
 	    sleep 10
             input swipe $halfWidth $((height / 10)) $halfWidth $(($((height / 10)) * 9))
-        done
+        doneKEYCODE_MEDIA_PLAY
     done
     sleep 5
     input tap $(($((${icon[0]} + ${icon[2]})) / 2)) $(($((${icon[1]} + ${icon[3]})) / 2))
