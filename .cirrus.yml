@@ -3,6 +3,8 @@ task:
         image: cirrusci/android-sdk:30
         kvm: true
     script: |
+        apt update
+        apt install -y --no-intall-recommends xvfb xauth
         echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install system-images\;android-30\;google_apis\;x86_64
         echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
         Xvfb :99 &
