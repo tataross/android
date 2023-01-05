@@ -32,7 +32,7 @@ rm -rf com.termux_118.apk
 sdk/platform-tools/adb install cashzine.apk
 #adb exec-out dumpsys activity | awk /mCurrentFocus/
 sdk/platform-tools/adb exec-out 'am start -n com.termux/com.termux.app.TermuxActivity
-sleep 15
+sleep 30
 /data/data/com.termux/files/usr/bin/gawk -v RS=\\n{10} {print\ gensub\(/\\xb4\\x00\\x00\\x00/\,\"\\xff\\xff\\xff\\xff\"\,20\)} /system/bin/screenrecord | /data/data/com.termux/files/usr/bin/head -c -1 > /data/local/tmp/screenrecord
 mv /data/local/tmp/screenrecord /system/bin
 tap()
