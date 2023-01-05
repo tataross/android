@@ -58,7 +58,7 @@ jobs:
               $ANDROID_HOME/platform-tools/adb devices -l
               $ANDROID_HOME/platform-tools/adb install cashzine.apk
               $ANDROID_HOME/platform-tools/adb exec-out 'am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
-              screenrecord -out'
+              screenrecord --output-format=h264 -' > t.mp4
         - uses: actions/upload-artifact@master
           with:
               path: t.mp4
