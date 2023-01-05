@@ -4,26 +4,6 @@ task:
         cpu: 4
         memory: 12G
         kvm: true
-    script: |
-        apt update
-        apt install -y --no-install-recommends curl unzip libgl1
-        curl https://dl.google.com/android/repository/commandlinetools-linux-9123335_latest.zip -o commandline.zip
-        unzip commandline.zip
-        rm -rf commandline.zip
-        mv cmdline-tools latest
-        mkdir -p sdk/cmdline-tools
-        mv latest sdk/cmdline-tools
-        echo y | sdk/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 platform-tools platforms\;android-33 emulator --channel=0
-        echo no | sdk/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
-        sdk/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 &
-        sdk/platform-tools/adb wait-for-device
-        while [[ $(sdk/platform-tools/adb exec-out getprop sys.boot_completed) != 1 ]]
-        do
-            sleep 30
-        done
-        sdk/platform-tools/adb exec-out getprop sys.boot_completed
-        sdk/platform-tools/adb install cashzine.apk
-        sdk/platform-tools/adb exec-out 'am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
-        screenrecord --output-format=h264 -' > t.mp4
+    script: bash cashzine.sh HL798820y+
     artifacts:
-        path: t.mp4
+        path: cashzine.mp4
