@@ -6,7 +6,7 @@ rm -rf commandline.zip
 mv cmdline-tools latest
 mkdir -p sdk/cmdline-tools
 mv latest sdk/cmdline-tools
-echo y | sdk/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
+echo y | sdk/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 platform-tools platforms\;android-33 --channel=0
 echo no | sdk/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
 sdk/emulator/emulator -avd android -no-window -no-snapshot -no-audio -no-boot-anim -writable-system -memory 4096 -gpu swiftshader_indirect &
 sdk/platform-tools/adb wait-for-device
