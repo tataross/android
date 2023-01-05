@@ -1,4 +1,5 @@
 task:
+    timeout_in: 120m
     container:
         image: openjdk:slim
         cpu: 4
