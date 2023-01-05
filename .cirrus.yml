@@ -1,21 +1,27 @@
 task:
     container:
-        image: cirrusci/android-sdk:30
+        image: openjdk:slim
         cpu: 4
         memory: 12G
         kvm: true
     script: |
-        echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install system-images\;android-30\;google_apis\;x86_64
-        echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
-        $ANDROID_HOME/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 &
+        curl https://dl.google.com/android/repository/commandlinetools-linux-9123335_latest.zip -o commandline.zip
+        unzip commandline.zip
+        rm -rf commandline.zip
+        mv cmdline-tools latest
+        mkdir -p sdk/cmdline-tools
+        mv latest sdk/cmdline-tools
+        echo y | sdk/cmdline-tools/latest/bin/sdkmanager --no_https system-images\;android-30\;google_apis\;x86_64 platform-tools platforms\;android-33 --channel=0
+        echo no | sdk/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
+        sdk/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 &
         $ANDROID_HOME/platform-tools/adb wait-for-device
         while [[ $($ANDROID_HOME/platform-tools/adb exec-out getprop sys.boot_completed) != 1 ]]
         do
             sleep 30
         done
-        $ANDROID_HOME/platform-tools/adb exec-out getprop sys.boot_completed
-        $ANDROID_HOME/platform-tools/adb install cashzine.apk
-        $ANDROID_HOME/platform-tools/adb exec-out 'am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
+        sdk/platform-tools/adb exec-out getprop sys.boot_completed
+        sdk/platform-tools/adb install cashzine.apk
+        sdk/platform-tools/adb exec-out 'am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
         screenrecord --output-format=h264 -' > t.mp4
     artifacts:
         path: t.mp4
