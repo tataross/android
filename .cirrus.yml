@@ -15,8 +15,7 @@ task:
         done
         $ANDROID_HOME/platform-tools/adb exec-out getprop sys.boot_completed
         $ANDROID_HOME/platform-tools/adb install cashzine.apk
-        $ANDROID_HOME/platform-tools/adb exec-out 'am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity'
-        sleep 30
-        $ANDROID_HOME/platform-tools/adb exec-out 'screencap -p' > t.png
+        $ANDROID_HOME/platform-tools/adb exec-out 'am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
+        screenrecord --output-format=h264 -' > t.mp4
     artifacts:
-        path: t.png
+        path: t.mp4
