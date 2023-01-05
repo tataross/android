@@ -13,7 +13,7 @@ task:
         mv cmdline-tools latest
         mkdir -p sdk/cmdline-tools
         mv latest sdk/cmdline-tools
-        echo y | sdk/cmdline-tools/latest/bin/sdkmanager --no_https system-images\;android-30\;google_apis\;x86_64 platform-tools platforms\;android-33\;emulator --channel=0
+        echo y | sdk/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 platform-tools platforms\;android-33 emulator --channel=0
         echo no | sdk/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
         sdk/emulator/emulator -avd android -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 &
         sdk/platform-tools/adb wait-for-device
