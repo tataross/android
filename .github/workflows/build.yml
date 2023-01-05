@@ -56,9 +56,6 @@ jobs:
               done
               $ANDROID_HOME/platform-tools/adb exec-out getprop sys.boot_completed
               $ANDROID_HOME/platform-tools/adb devices -l
-              curl -O https://f-droid.org/repo/com.termux_118.apk
-              $ANDROID_HOME/platform-tools/adb install com.termux_118.apk
-              rm -rf com.termux_118.apk
               $ANDROID_HOME/platform-tools/adb install cashzine.apk
               $ANDROID_HOME/platform-tools/adb shell 'am start -n com.termux/com.termux.app.TermuxActivity
               /system/bin/sleep 1m
