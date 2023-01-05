@@ -57,15 +57,11 @@ jobs:
               $ANDROID_HOME/platform-tools/adb exec-out getprop sys.boot_completed
               $ANDROID_HOME/platform-tools/adb devices -l
               $ANDROID_HOME/platform-tools/adb install cashzine.apk
-              $ANDROID_HOME/platform-tools/adb shell 'am start -n com.termux/com.termux.app.TermuxActivity
-              /system/bin/sleep 1m
-              screencap /data/local/tmp/ha.png'
-              screencapture ha.j
+              $ANDROID_HOME/platform-tools/adb exec-out 'am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
+              screenrecord -out'
         - uses: actions/upload-artifact@master
           with:
-              path: |
-                  ha.jpg
-                  t.mp4
+              path: t.mp4
     clean:
         runs-on: ubuntu-latest
         permissions:
