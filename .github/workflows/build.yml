@@ -40,15 +40,11 @@ jobs:
               automatic_release_tag: latest
               files: out.apk
     test:
-        runs-on: ubuntu-latest
+        runs-on: macos-12
         if: github.event_name == 'push'
         steps:
         - uses: actions/checkout@main
         - run: |
-              sudo apt update
-              sudo apt install -y --no-install-recommends ffmpeg xvfb xauth
-              xvfb-run ffmpeg -f x11grab -i :99.0 -t 120 t.mp4
-              #brew install ffmpeg
               echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
               echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
               $ANDROID_HOME/emulator/emulator -avd android -no-snapshot -noaudio -no-boot-anim -memory 4096 &
@@ -67,9 +63,7 @@ jobs:
               $ANDROID_HOME/platform-tools/adb shell 'am start -n com.termux/com.termux.app.TermuxActivity
               /system/bin/sleep 1m
               screencap /data/local/tmp/ha.png'
-              screencapture ha.jpg
-              #$ANDROID_HOME/platform-tools/adb pull /data/local/tmp/ha.png ha.png
-              ffmpeg -f avfoundation -i 0 -t 180 t.mp4
+              screencapture ha.j
         - uses: actions/upload-artifact@master
           with:
               path: |
