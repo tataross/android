@@ -42,7 +42,7 @@ tap()
     array=($(awk -v RS=\> -F= /$1/{gsub\(/[][\,\"]/\,\"\ \"\,\$NF\)\;print\$NF} /data/local/tmp/ui.xml))
     input tap $(($((${array[0]} + ${array[2]})) / 2)) $(($((${array[1]} + ${array[3]})) / 2))
 }
-/system/bin/screenrecord /data/local/tmp/cashzine.mp4 &
+/system/bin/linker64 /system/bin/screenrecord --output-format=h264 - &
 
 am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
 tap ll_home_home
@@ -82,5 +82,4 @@ do
     sleep 5
     input keyevent 4
     tap item_container
-done'
-sdk/platform-tools/adb pull /data/local/tmp/cashzine.mp4 cashzine.mp4
+done' > cashzine.mp4
