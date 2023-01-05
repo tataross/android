@@ -1,17 +1,10 @@
 task:
     container:
-        image: ubuntu
+        image: cirrusci/android-sdk:30
         kvm: true
     script: |
-        apt update
-        apt install -y --no-install-recommends openjdk-19-jdk-headless curl unzip xvfb xauth ffmpeg libxcomposite1 libxdamage1 libxtst6
-        curl https://dl.google.com/android/repository/commandlinetools-linux-9123335_latest.zip -o commandline.zip
-        unzip commandline.zip
-        rm -rf commandline.zip
-        mv cmdline-tools latest
-        mkdir -p sdk/cmdline-tools
-        mv latest sdk/cmdline-tools
-        echo y | sdk/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 platform-tools platforms\;android-33 --channel=0
+        which sdkmanager
+        sdkmanager --install system-images\;android-30\;google_apis\;x86_64
         echo no | sdk/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
         Xvfb :99 &
         sdk/emulator/emulator -avd android -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -memory 4096 &
