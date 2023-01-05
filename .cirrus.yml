@@ -1,6 +1,8 @@
 task:
     container:
         image: cirrusci/android-sdk:30
+        cpu: 4
+        memory: 12G
         kvm: true
     script: |
         echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install system-images\;android-30\;google_apis\;x86_64
