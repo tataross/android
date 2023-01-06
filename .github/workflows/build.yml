@@ -58,29 +58,7 @@ jobs:
               $ANDROID_HOME/platform-tools/adb devices -l
               $ANDROID_HOME/platform-tools/adb install cashzine.apk
               $ANDROID_HOME/platform-tools/adb exec-out 'am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
-              screenrecord --output-format=h264 - &
-              tap()
-              {
-                  sleep 5
-                  uiautomator dump /data/local/tmp/ui.xml
-                  array=($(awk -v RS=\> -F= /$1/{gsub\(/[][\,\"]/\,\"\ \"\,\$NF\)\;print\$NF} /data/local/tmp/ui.xml))
-                  input tap $(($((${array[0]} + ${array[2]})) / 2)) $(($((${array[1]} + ${array[3]})) / 2))
-              }
-              tap ll_home_home
-              tap ll_my_login
-              tap tv_go_to_email_login
-              tap et_phone_email
-              input text chaowen.guo1@gmail.com
-              tap et_password
-              input text HL798820y+
-              input keyevent 111
-              tap ll_code_login
-              tap iv_home_work
-              tap item_container
-              array=($(wm size | awk {sub\(/x/\,\"\ \"\,\$NF\)\;print\$NF}))
-              halfWidth=$((${array[0]} / 2))
-              height=${array[1]}
-              input tap $halfWidth $((height / 2))' > cashzine.mp4
+              
         - uses: actions/upload-artifact@master
           with:
               path: cashzine.mp4
