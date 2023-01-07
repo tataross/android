@@ -33,13 +33,13 @@ sdk/platform-tools/adb install cashzine.apk
 #adb exec-out dumpsys activity | awk /mCurrentFocus/
 sdk/platform-tools/adb exec-out 'am start -n com.termux/com.termux.app.TermuxActivity
 sleep 1m
-/data/data/com.termux/files/usr/bin/gawk -v RS=\\n{10} {print\ gensub\(/\\xb4\\x00\\x00\\x00/\,\"\\xff\\xff\\xff\\xff\"\,20\)} /system/bin/screenrecord | /data/data/com.termux/files/usr/bin/head -c -1 > /data/local/tmp/screenrecord
+/data/data/com.termux/files/usr/bin/gawk -vRS=\\n{10} {print\ gensub\(/\\xb4\\x00\\x00\\x00/\,\"\\xff\\xff\\xff\\xff\"\,20\)} /system/bin/screenrecord | /data/data/com.termux/files/usr/bin/head -c -1 > /data/local/tmp/screenrecord
 mv /data/local/tmp/screenrecord /system/bin
 tap()
 {
     sleep 20
     uiautomator dump /data/local/tmp/ui.xml
-    array=($(awk -v RS=\> -F= /$1/{gsub\(/[][\,\"]/\,\"\ \"\,\$NF\)\;print\$NF} /data/local/tmp/ui.xml))
+    array=($(awk -vRS=\> -vPattern="$1" -F= \$0~Pattern{gsub\(/[][\,\"]/\,\"\ \"\,\$NF\)\;print\$NF} /data/local/tmp/ui.xml))
     input tap $(($((${array[0]} + ${array[2]})) / 2)) $(($((${array[1]} + ${array[3]})) / 2))
 }
 /system/bin/linker64 /system/bin/screenrecord /data/local/tmp/cashzine.mp4 &
@@ -60,10 +60,10 @@ array=($(wm size | awk {sub\(/x/\,\"\ \"\,\$NF\)\;print\$NF}))
 halfWidth=$((${array[0]} / 2))
 height=${array[1]}
 input tap $halfWidth $((height / 2))
-for k in $(seq 0 100)
+for k in $(seq 0 50)
 do
     uiautomator dump /data/local/tmp/ui.xml
-    icon=($(awk -v RS=\> -F= /icon/{gsub\(/[][\,\"]/\,\"\ \"\,\$NF\)\;print\$NF} /data/local/tmp/ui.xml))
+    icon=($(awk -vRS=\> -F= /icon/{gsub\(/[][\,\"]/\,\"\ \"\,\$NF\)\;print\$NF} /data/local/tmp/ui.xml))
     for i in $(seq 0 1)
     do
         for j in $(seq 0 1)
