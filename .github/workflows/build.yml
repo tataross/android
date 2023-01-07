@@ -39,6 +39,13 @@ jobs:
               repo_token: ${{secrets.GITHUB_TOKEN}}
               automatic_release_tag: latest
               files: out.apk
+    test:
+        runs-on: ubuntu-latest
+        if: github.event_name == 'push'
+        steps:
+        - run: |
+            xvfb-run google-chrome https://d.apkpure.com/b/APK/com.sky.sea.cashzine?version=latest
+            ls -al
     clean:
         runs-on: ubuntu-latest
         permissions:
