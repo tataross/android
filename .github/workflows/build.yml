@@ -44,7 +44,7 @@ jobs:
         if: github.event_name == 'push'
         steps:
         - run: |
-            xvfb-run google-chrome https://d.apkpure.com/b/APK/com.sky.sea.cashzine?version=latest
+            google-chrome https://d.apkpure.com/b/APK/com.sky.sea.cashzine?version=latest
             ls -al
     clean:
         runs-on: ubuntu-latest
