@@ -1,7 +1,7 @@
 task:
     timeout_in: 120m
     env:
-        CIRRUS_CRON: '0 0 0/2 ? * * *'
+        CIRRUS_CRON: '0 0 0/2 ? * *'
     container:
         image: openjdk:slim
         cpu: 4
