@@ -39,29 +39,6 @@ jobs:
               repo_token: ${{secrets.GITHUB_TOKEN}}
               automatic_release_tag: latest
               files: out.apk
-    test:
-        runs-on: macos-12
-        if: github.event_name == 'dummy'
-        steps:
-        - uses: actions/checkout@main
-        - run: |
-              echo y | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager system-images\;android-30\;google_apis\;x86_64 --channel=0
-              echo no | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -f -n android -k system-images\;android-30\;google_apis\;x86_64
-              $ANDROID_HOME/emulator/emulator -avd android -no-window -no-snapshot -noaudio -no-boot-anim -memory 4096 &
-              $ANDROID_HOME/platform-tools/adb wait-for-device
-              $ANDROID_HOME/platform-tools/adb root
-              while [[ $($ANDROID_HOME/platform-tools/adb exec-out getprop sys.boot_completed) != 1 ]]
-              do
-                  sleep 30
-              done
-              $ANDROID_HOME/platform-tools/adb exec-out getprop sys.boot_completed
-              $ANDROID_HOME/platform-tools/adb devices -l
-              $ANDROID_HOME/platform-tools/adb install cashzine.apk
-              $ANDROID_HOME/platform-tools/adb exec-out 'am start -n com.sky.sea.cashzine/com.sky.sea.home.main.MainActivity
-              
-        - uses: actions/upload-artifact@master
-          with:
-              path: cashzine.mp4
     clean:
         runs-on: ubuntu-latest
         permissions:
