@@ -1,4 +1,4 @@
-cashzine:
+cashzine_task:
     timeout_in: 120m
     env:
         CIRRUS_CRON: '0 0 0/2 ? * *'
