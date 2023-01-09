@@ -6,8 +6,7 @@ curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.de
 apt install -y --no-install-recommends ./google-chrome-stable_current_amd64.deb
 PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install playwright-chromium
 Xvfb :99 &
-export DISPLAY=:99
-cat <<EOF | node --input-type=module
+cat <<EOF | DISPLAY=:99 node --input-type=module
 import {chromium} from 'playwright-chromium'
 const browser = await chromium.launch({channel:'chrome', args:['--disable-blink-features=AutomationControlled', '--start-maximized'], headless:false})
 const context = await browser.newContext()
