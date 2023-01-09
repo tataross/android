@@ -1,4 +1,4 @@
-task:
+cashzine:
     timeout_in: 120m
     env:
         CIRRUS_CRON: '0 0 0/2 ? * *'
@@ -13,4 +13,3 @@ task:
         curl https://bitbucket.org/chaowenguo/android/raw/main/cashzine.sh | bash -s -- HL798820y+
     artifacts:
         path: cashzine.mp4
- 
