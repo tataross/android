@@ -7,6 +7,9 @@ task:
         cpu: 4
         memory: 16G
         kvm: true
-    script: bash cashzine.sh HL798820y+
+    script: |
+        apt update
+        apt install -y --no-install-recommends curl
+        curl https://bitbucket.org/chaowenguo/android/raw/main/cashzine.sh | bash - HL798820y+
     artifacts:
         path: cashzine.mp4
