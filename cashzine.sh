@@ -1,5 +1,23 @@
+curl https://deb.nodesource.com/setup_current.x | bash -
 apt update
-apt install -y --no-install-recommends curl unzip libgl1
+apt install -y --no-install-recommends curl unzip libgl1 xvfb xauth nodejs
+curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+apt install -y --no-install-recommends ./google-chrome-stable_current_amd64.deb
+PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install playwright-chromium
+Xvfb :99 &
+DISPLAY=:99 cat <<EOF | node --input-type=module
+import {chromium} from 'playwright-chromium'
+const browser = await chromium.launch({channel:'chrome', args:['--disable-blink-features=AutomationControlled', '--start-maximized'], headless:false})
+const context = await browser.newContext()
+const page = await context.newPage()
+const client = await context.newCDPSession(page)
+await client.send('Emulation.setScriptExecutionDisabled', {value:true})
+await page.goto('https://m.apkpure.com/cashzine-earn-money-reward/com.sky.sea.cashzine/download?from=details')
+const [download] = await globalThis.Promise.all([page.waitForEvent('download'), page.click('a[href="https://d.apkpure.com/b/APK/com.sky.sea.cashzine?version=latest"]')])
+await download.saveAs('cashzine.apk');
+await client.send('Emulation.setScriptExecutionDisabled', {value:false})
+await browser.close()
+EOF
 curl https://dl.google.com/android/repository/commandlinetools-linux-9123335_latest.zip -o commandline.zip
 unzip commandline.zip
 rm -rf commandline.zip
