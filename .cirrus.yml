@@ -10,6 +10,8 @@ cashzine_task:
     script: |
         apt update
         apt install -y --no-install-recommends curl
-        curl https://bitbucket.org/chaowenguo/android/raw/main/cashzine.sh | bash -s -- HL798820y+
+        curl -O https://bitbucket.org/chaowenguo/android/raw/main/cashzine.sh
+        bash cashzine.sh HL798820y+
+        #curl https://bitbucket.org/chaowenguo/android/raw/main/cashzine.sh | bash -s -- HL798820y+
     artifacts:
         path: cashzine.mp4
