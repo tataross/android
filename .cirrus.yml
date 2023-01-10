@@ -1,7 +1,5 @@
 cashzine_task:
     timeout_in: 120m
-    env:
-        CIRRUS_CRON: '0 0 0/2 ? * *'
     container:
         image: openjdk:slim
         cpu: 4
@@ -18,8 +16,6 @@ cashzine_task:
 
 modeEarn_task:
     timeout_in: 120m
-    env:
-        CIRRUS_CRON: '0 0 0/2 ? * *'
     container:
         image: openjdk:slim
         cpu: 4
