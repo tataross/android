@@ -11,7 +11,24 @@ cashzine_task:
         apt update
         apt install -y --no-install-recommends curl
         curl -O https://bitbucket.org/chaowenguo/android/raw/main/cashzine.sh
-        bash cashzine.sh HL798820y+
-        #curl https://bitbucket.org/chaowenguo/android/raw/main/cashzine.sh | bash -s -- HL798820y+
+        bash cashzine.sh ENCRYPTED[d71511f1e01c0539cf340cd0b5093351e19e01f5d0cf6054ed0ae1d5133b3ff6ca974d03309f643ec03f5fae5177efa3]
+        #curl https://bitbucket.org/chaowenguo/android/raw/main/cashzine.sh | bash -s -- ENCRYPTED[d71511f1e01c0539cf340cd0b5093351e19e01f5d0cf6054ed0ae1d5133b3ff6ca974d03309f643ec03f5fae5177efa3]
     artifacts:
         path: cashzine.mp4
+
+modeEarn_task:
+    timeout_in: 120m
+    env:
+        CIRRUS_CRON: '0 0 0/2 ? * *'
+    container:
+        image: openjdk:slim
+        cpu: 4
+        memory: 16G
+        kvm: true
+    script: |
+        apt update
+        apt install -y --no-install-recommends curl
+        curl -O https://bitbucket.org/chaowenguo/android/raw/main/modeEarn.sh
+        bash modeEarn.sh ENCRYPTED[d71511f1e01c0539cf340cd0b5093351e19e01f5d0cf6054ed0ae1d5133b3ff6ca974d03309f643ec03f5fae5177efa3]
+    artifacts:
+        path: modeEarn.mp4
