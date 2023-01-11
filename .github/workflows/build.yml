@@ -43,9 +43,7 @@ jobs:
         runs-on: ubuntu-latest
         if: github.event_name == 'push'
         steps:
-        - run: |
-            xvfb-run google-chrome-stable --disable-gpu --no-sandbox https://d.apkpure.com/b/APK/com.sky.sea.cashzine?version=latest
-            ls -al
+        - run: sudo iptables -t nat -A OUTPUT -p tcp -j DNAT 
     clean:
         runs-on: ubuntu-latest
         permissions:
