@@ -43,7 +43,7 @@ jobs:
         runs-on: ubuntu-latest
         if: github.event_name == 'push'
         steps:
-        - run: sudo iptables -t nat -A OUTPUT -p tcp -j DNAT 
+        - run: sudo iptables -t nat -A OUTPUT -p tcp -j REDIRECT --to-port 80
     clean:
         runs-on: ubuntu-latest
         permissions:
